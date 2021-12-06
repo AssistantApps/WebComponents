@@ -33,7 +33,8 @@
         flex-direction: column;
         justify-content: center;
         color: var(--assistantapps-patron-text-colour, white);
-        padding-left: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
         line-height: 1.2em;
         white-space: nowrap;
         overflow: hidden;

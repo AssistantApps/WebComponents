@@ -70,15 +70,23 @@
 
     .patreon-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         column-gap: 1em;
         row-gap: 1em;
         margin-bottom: 3em;
     }
 
+    @media only screen and (max-width: 1000px) {
+        .patreon-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 0.5em;
+            row-gap: 0.5em;
+        }
+    }
+
     @media only screen and (max-width: 600px) {
         .patreon-container {
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(1, minmax(0, 1fr));
             column-gap: 0.5em;
             row-gap: 0.5em;
         }
