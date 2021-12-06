@@ -2,7 +2,6 @@
 
 <script lang="ts">
     import { onMount } from "svelte";
-    import PatreonTile from "./patronTile.svelte";
     import type { PatreonViewModel } from "../../contracts/generated/AssistantApps/ViewModel/patreonViewModel";
     import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
     import { NetworkState } from "../../contracts/NetworkState";
@@ -27,14 +26,61 @@
     });
 </script>
 
-<div class="patreon-container">
+<div class="patreon-container noselect">
     {#if patreonState === NetworkState.Loading}
         <span>Loading...</span>
     {:else if patreonState === NetworkState.Error}
         <span>Something went wrong...</span>
     {:else}
         {#each patrons as patron}
-            <PatreonTile {patron} />
+            <assistant-apps-patron-tile
+                name={patron.name}
+                imageurl={patron.imageUrl}
+            />
         {/each}
     {/if}
 </div>
+
+<style>
+    * {
+        font-family: var(
+            --assistantapps-font-family,
+            "Roboto",
+            Helvetica,
+            Arial,
+            sans-serif
+        );
+    }
+
+    .noselect {
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    .patreon-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1em;
+        row-gap: 1em;
+        margin-bottom: 3em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .patreon-container {
+            grid-template-columns: repeat(1, 1fr);
+            column-gap: 0.5em;
+            row-gap: 0.5em;
+        }
+    }
+</style>

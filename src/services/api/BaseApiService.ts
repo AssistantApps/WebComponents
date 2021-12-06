@@ -14,9 +14,10 @@ export class BaseApiService {
   protected async get<T>(url: string): Promise<ResultWithValue<T>> {
     try {
       const result = await fetch(`${this._baseUrl}/${url}`);
+      const content = await result.json();
       return {
         isSuccess: true,
-        value: result.body as any,
+        value: content,
         errorMessage: ''
       }
     } catch (ex) {
