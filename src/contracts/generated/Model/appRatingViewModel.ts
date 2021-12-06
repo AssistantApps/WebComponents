@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { AppRatingType } from "./../Enum/appRatingType";
+import type { AppRatingType } from "./../Enum/appRatingType";
 
 export interface AppRatingViewModel {
     type: AppRatingType;

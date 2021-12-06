@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { CommunitySpotlightViewModel } from "./communitySpotlightViewModel";
+import type { CommunitySpotlightViewModel } from "./communitySpotlightViewModel";
 
 export interface AdminCommunitySpotlightViewModel extends CommunitySpotlightViewModel {
     guid: any;

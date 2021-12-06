@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { NmsfmTrackType } from "./../Enum/nmsfmTrackType";
+import type { NmsfmTrackType } from "./../Enum/nmsfmTrackType";
 
 export interface NmsfmTrackDataViewModel {
     title: string;

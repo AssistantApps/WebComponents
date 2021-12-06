@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { FeedbackQuestionType } from "./../../../Enum/feedbackQuestionType";
+import type { FeedbackQuestionType } from "./../../../Enum/feedbackQuestionType";
 
 export interface FeedbackQuestionAndAnswerViewModel {
     question: string;

@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { ReviewSourceType } from "./../../Enum/reviewSourceType";
+import type { ReviewSourceType } from "./../../Enum/reviewSourceType";
 
 export interface TestimonialViewModel {
     guid: any;

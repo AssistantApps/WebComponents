@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { FeedbackViewModel } from "./feedbackViewModel";
+import type { FeedbackViewModel } from "./feedbackViewModel";
 
 export interface FeedbackWithNumResponsesViewModel extends FeedbackViewModel {
     numberOfResponses: number;

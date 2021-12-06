@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { AdminApprovalStatus } from "./../../Enum/adminApprovalStatus";
+import type { AdminApprovalStatus } from "./../../Enum/adminApprovalStatus";
 
 export interface GuideContentViewModel {
     guid: any;

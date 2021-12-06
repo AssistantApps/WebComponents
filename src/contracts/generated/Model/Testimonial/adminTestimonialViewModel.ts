@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { TestimonialViewModel } from "./testimonialViewModel";
+import type { TestimonialViewModel } from "./testimonialViewModel";
 
 export interface AdminTestimonialViewModel extends TestimonialViewModel {
     sortRank: number;

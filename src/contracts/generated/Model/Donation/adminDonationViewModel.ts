@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { DonationViewModel } from "./donationViewModel";
+import type { DonationViewModel } from "./donationViewModel";
 
 export interface AdminDonationViewModel extends DonationViewModel {
     guid: any;

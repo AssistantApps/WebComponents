@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { TranslationSubmissionViewModel } from "./translationSubmissionViewModel";
+import type { TranslationSubmissionViewModel } from "./translationSubmissionViewModel";
 
 export interface TranslationSubmissionWithVotesViewModel extends TranslationSubmissionViewModel {
     guid: any;

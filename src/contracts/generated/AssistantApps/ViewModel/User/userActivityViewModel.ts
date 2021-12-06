@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { UserActivityActionType } from "./../../Enum/userActivityActionType";
+import type { UserActivityActionType } from "./../../Enum/userActivityActionType";
 
 export interface UserActivityViewModel {
     username: string;

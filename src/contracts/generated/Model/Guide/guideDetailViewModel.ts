@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { LanguageType } from "./../../Enum/languageType";
+import type { LanguageType } from "./../../Enum/languageType";
 
 export interface GuideDetailViewModel {
     guid: any;

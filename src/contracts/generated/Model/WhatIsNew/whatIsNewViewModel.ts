@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { AddWhatIsNewViewModel } from "./addWhatIsNewViewModel";
+import type { AddWhatIsNewViewModel } from "./addWhatIsNewViewModel";
 
 export interface WhatIsNewViewModel extends AddWhatIsNewViewModel {
     guid: any;

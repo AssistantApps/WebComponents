@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { SettingType } from "./../../Enum/settingType";
+import type { SettingType } from "./../../Enum/settingType";
 
 export interface AddSettingViewModel {
     type: SettingType;

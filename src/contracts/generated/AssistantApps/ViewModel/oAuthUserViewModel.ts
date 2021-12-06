@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { OAuthProviderType } from "./../Enum/oAuthProviderType";
+import type { OAuthProviderType } from "./../Enum/oAuthProviderType";
 
 export interface OAuthUserViewModel {
     oAuthType: OAuthProviderType;

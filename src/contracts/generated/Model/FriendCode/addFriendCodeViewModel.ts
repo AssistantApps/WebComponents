@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { PlatformType } from "./../../Enum/platformType";
+import type { PlatformType } from "./../../Enum/platformType";
 
 export interface AddFriendCodeViewModel {
     name: string;

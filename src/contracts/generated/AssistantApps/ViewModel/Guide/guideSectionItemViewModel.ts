@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { GuideSectionItemType } from "./../../Enum/guideSectionItemType";
+import type { GuideSectionItemType } from "./../../Enum/guideSectionItemType";
 
 export interface GuideSectionItemViewModel {
     guid: any;

@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import { SortDirection } from "./../../Enum/sortDirection";
+import type { SortDirection } from "./../../Enum/sortDirection";
 
 export interface GuideSearchViewModel {
     appGuid: any;
