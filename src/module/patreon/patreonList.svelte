@@ -12,7 +12,6 @@
     const fetchPatreons = async () => {
         const aaApi = new AssistantAppsApiService();
         const patreonListResult = await aaApi.getPatronsList();
-        console.log(patreonListResult);
         if (patreonListResult.isSuccess === false) {
             patreonState = NetworkState.Error;
             return;
