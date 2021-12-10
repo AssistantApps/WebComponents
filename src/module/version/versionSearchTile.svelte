@@ -1,7 +1,6 @@
 <svelte:options tag="assistant-apps-version-search-tile" />
 
 <script lang="ts">
-    import SvelteMarkdown from "svelte-markdown";
     import { defaultFormat } from "../../helper/dateHelper";
 
     export let guid: any = "";
@@ -29,7 +28,7 @@
         position: relative;
         background-color: var(
             --assistantapps-version-background-colour,
-            rgba(174, 176, 179, 0.692)
+            rgba(174, 176, 179, 0.7)
         );
         border-radius: 5px;
         overflow: hidden;

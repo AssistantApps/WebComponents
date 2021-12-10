@@ -164,7 +164,8 @@
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 5px solid black;
+        border-top: 5px solid
+            var(--assistantapps-version-dropdown-background-colour, #ffffff);
     }
 
     .dd-button:hover {
