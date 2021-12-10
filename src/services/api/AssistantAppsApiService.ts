@@ -3,6 +3,7 @@ import { BaseApiService } from './BaseApiService';
 import type { PatreonViewModel } from '../../contracts/generated/AssistantApps/ViewModel/patreonViewModel';
 import type { VersionViewModel } from '../../contracts/generated/AssistantApps/ViewModel/Version/versionViewModel';
 import type { VersionSearchViewModel } from '../../contracts/generated/AssistantApps/ViewModel/Version/versionSearchViewModel';
+import type { AppViewModel } from '../../contracts/generated/AssistantApps/ViewModel/appViewModel';
 
 declare global {
     interface Window { config: any }
@@ -12,22 +13,13 @@ export class AssistantAppsApiService extends BaseApiService {
     constructor() {
         super(window.config?.assistantAppsUrl);
     }
-
-    async getPatronsList(): Promise<ResultWithValue<Array<PatreonViewModel>>> {
-        return await this.get<Array<PatreonViewModel>>('patreon');
-    }
+    getApps = (): Promise<ResultWithValue<Array<AppViewModel>>> => this.get<Array<AppViewModel>>('app');
+    getPatronsList = (): Promise<ResultWithValue<Array<PatreonViewModel>>> => this.get<Array<PatreonViewModel>>('patreon');
 
     async getWhatIsNewItems(search: VersionSearchViewModel): Promise<ResultWithValueAndPagination<Array<VersionViewModel>>> {
         const result = await this.post<Array<VersionViewModel>, VersionSearchViewModel>(
-            'Version/Search', search,
-            (response: any) => {
-                return {
-                    ...response.data,
-                    isSuccess: true,
-                    errorMessage: '',
-                };
-            });
+            'Version/Search', search);
 
-        return result as ResultWithValueAndPagination<Array<VersionViewModel>>;
+        return result.value as any;
     }
 }

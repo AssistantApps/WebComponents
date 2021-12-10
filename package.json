@@ -1,6 +1,6 @@
 {
   "name": "assistantapps-webcomponents",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "private": true,
   "scripts": {
     "build": "rollup -c",
@@ -25,6 +25,9 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "@vanillawc/wc-markdown": "^1.6.11",
+    "dayjs": "^1.10.7",
+    "marked": "^4.0.7",
     "sirv-cli": "^1.0.0"
   }
 }
