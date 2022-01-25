@@ -55,4 +55,10 @@
     padding: 0;
     color: var(--assistantapps-team-member-text-colour, #f0f0f0);
   }
+
+  .team-member a {
+    margin: 0;
+    padding: 0;
+    color: var(--assistantapps-team-member-link-text-colour, #0000ee);
+  }
 </style>
