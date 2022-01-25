@@ -456,6 +456,7 @@
             super((_a = window.config) === null || _a === void 0 ? void 0 : _a.assistantAppsUrl);
             this.getApps = () => this.get('app');
             this.getPatronsList = () => this.get('patreon');
+            this.getTeamMembersList = () => this.get('teammember');
         }
         async getWhatIsNewItems(search) {
             const result = await this.post('Version/Search', search);
@@ -968,7 +969,7 @@
     	return child_ctx;
     }
 
-    // (51:4) {:else}
+    // (51:2) {:else}
     function create_else_block(ctx) {
     	let label;
     	let t0;
@@ -1028,13 +1029,13 @@
     			if (if_block1) if_block1.c();
     			attr_dev(input, "type", "checkbox");
     			attr_dev(input, "class", "dd-input");
-    			add_location(input, file$5, 62, 12, 2138);
+    			add_location(input, file$5, 62, 6, 2034);
     			attr_dev(ul, "class", "dd-menu");
-    			add_location(ul, file$5, 63, 12, 2194);
+    			add_location(ul, file$5, 63, 6, 2084);
     			attr_dev(label, "class", "dropdown");
-    			add_location(label, file$5, 51, 8, 1717);
+    			add_location(label, file$5, 51, 4, 1699);
     			attr_dev(div, "class", "what-is-new-container noselect");
-    			add_location(div, file$5, 77, 8, 2669);
+    			add_location(div, file$5, 77, 4, 2439);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, label, anchor);
@@ -1145,14 +1146,14 @@
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(51:4) {:else}",
+    		source: "(51:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (49:50) 
+    // (49:48) 
     function create_if_block_1(ctx) {
     	let span;
 
@@ -1160,7 +1161,7 @@
     		c: function create() {
     			span = element("span");
     			span.textContent = "Something went wrong...";
-    			add_location(span, file$5, 49, 8, 1658);
+    			add_location(span, file$5, 49, 4, 1646);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -1175,14 +1176,14 @@
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(49:50) ",
+    		source: "(49:48) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (47:4) {#if networkState === NetworkState.Loading}
+    // (47:2) {#if networkState === NetworkState.Loading}
     function create_if_block$1(ctx) {
     	let span;
 
@@ -1190,7 +1191,7 @@
     		c: function create() {
     			span = element("span");
     			span.textContent = "Loading...";
-    			add_location(span, file$5, 47, 8, 1573);
+    			add_location(span, file$5, 47, 4, 1567);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -1205,14 +1206,14 @@
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(47:4) {#if networkState === NetworkState.Loading}",
+    		source: "(47:2) {#if networkState === NetworkState.Loading}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:12) {:else}
+    // (58:6) {:else}
     function create_else_block_1(ctx) {
     	let div;
     	let p;
@@ -1222,9 +1223,9 @@
     			div = element("div");
     			p = element("p");
     			p.textContent = "Please Select an App";
-    			add_location(p, file$5, 59, 20, 2054);
+    			add_location(p, file$5, 59, 10, 1970);
     			attr_dev(div, "class", "dd-button");
-    			add_location(div, file$5, 58, 16, 2009);
+    			add_location(div, file$5, 58, 8, 1935);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1240,14 +1241,14 @@
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(58:12) {:else}",
+    		source: "(58:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (53:12) {#if selectedApp != null}
+    // (53:6) {#if selectedApp != null}
     function create_if_block_3(ctx) {
     	let div;
     	let img;
@@ -1267,10 +1268,10 @@
     			t1 = text(t1_value);
     			if (!src_url_equal(img.src, img_src_value = /*selectedApp*/ ctx[1].iconUrl)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*selectedApp*/ ctx[1].name);
-    			add_location(img, file$5, 54, 20, 1843);
-    			add_location(p, file$5, 55, 20, 1921);
+    			add_location(img, file$5, 54, 10, 1801);
+    			add_location(p, file$5, 55, 10, 1869);
     			attr_dev(div, "class", "dd-button");
-    			add_location(div, file$5, 53, 16, 1798);
+    			add_location(div, file$5, 53, 8, 1766);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1299,14 +1300,14 @@
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(53:12) {#if selectedApp != null}",
+    		source: "(53:6) {#if selectedApp != null}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:16) {#each appLookup as app}
+    // (65:8) {#each appLookup as app}
     function create_each_block_1(ctx) {
     	let li;
     	let img;
@@ -1335,11 +1336,11 @@
     			t2 = space();
     			if (!src_url_equal(img.src, img_src_value = /*app*/ ctx[11].iconUrl)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*app*/ ctx[11].name);
-    			add_location(img, file$5, 70, 24, 2485);
-    			add_location(p, file$5, 71, 24, 2551);
+    			add_location(img, file$5, 70, 12, 2299);
+    			add_location(p, file$5, 71, 12, 2353);
     			attr_dev(li, "class", "dd-menu-item");
     			li.value = li_value_value = /*app*/ ctx[11].guid;
-    			add_location(li, file$5, 65, 20, 2278);
+    			add_location(li, file$5, 65, 10, 2150);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -1382,14 +1383,14 @@
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(65:16) {#each appLookup as app}",
+    		source: "(65:8) {#each appLookup as app}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (79:12) {#each whatIsNewPagination.value ?? [] as whatIsNewItem}
+    // (79:6) {#each whatIsNewPagination.value ?? [] as whatIsNewItem}
     function create_each_block$1(ctx) {
     	let assistant_apps_version_search_tile;
     	let assistant_apps_version_search_tile_guid_value;
@@ -1408,7 +1409,7 @@
     			set_custom_element_data(assistant_apps_version_search_tile, "buildnumber", assistant_apps_version_search_tile_buildnumber_value = /*whatIsNewItem*/ ctx[8].buildNumber);
     			set_custom_element_data(assistant_apps_version_search_tile, "platforms", assistant_apps_version_search_tile_platforms_value = /*whatIsNewItem*/ ctx[8].platforms);
     			set_custom_element_data(assistant_apps_version_search_tile, "activedate", assistant_apps_version_search_tile_activedate_value = /*whatIsNewItem*/ ctx[8].activeDate);
-    			add_location(assistant_apps_version_search_tile, file$5, 79, 16, 2801);
+    			add_location(assistant_apps_version_search_tile, file$5, 79, 8, 2557);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, assistant_apps_version_search_tile, anchor);
@@ -1447,14 +1448,14 @@
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(79:12) {#each whatIsNewPagination.value ?? [] as whatIsNewItem}",
+    		source: "(79:6) {#each whatIsNewPagination.value ?? [] as whatIsNewItem}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (89:12) {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}
+    // (89:6) {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}
     function create_if_block_2(ctx) {
     	let p;
 
@@ -1462,7 +1463,7 @@
     		c: function create() {
     			p = element("p");
     			p.textContent = "No items to display";
-    			add_location(p, file$5, 89, 16, 3324);
+    			add_location(p, file$5, 89, 8, 2992);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1476,7 +1477,7 @@
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(89:12) {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}",
+    		source: "(89:6) {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}",
     		ctx
     	});
 
@@ -1640,25 +1641,25 @@
     		super();
 
     		this.shadowRoot.innerHTML = `<style>*{font-family:var(
-            --assistantapps-font-family,
-            "Roboto",
-            Helvetica,
-            Arial,
-            sans-serif
-        )}.noselect{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.dropdown{display:inline-block;position:relative;margin-bottom:1em;z-index:20}.dd-button{display:flex;border:1px solid gray;border-radius:4px;padding:10px 30px 10px 10px;background-color:var(
-            --assistantapps-version-dropdown-background-colour,
-            #ffffff
-        );cursor:pointer;white-space:nowrap}.dd-button:after{content:"";position:absolute;top:50%;right:15px;transform:translateY(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid
-            var(--assistantapps-version-dropdown-background-colour, #ffffff)}.dd-button:hover{background-color:var(
-            --assistantapps-version-dropdown-background-hover-colour,
-            #eeeeee
-        )}.dd-button img{width:20px;height:20px;margin-right:0.5em}.dd-button p{display:flex;flex-direction:column;justify-content:center;margin:0;padding:0}.dd-input{display:none}.dd-menu{position:absolute;top:100%;border:1px solid #ccc;border-radius:4px;padding:0;margin:2px 0 0 0;box-shadow:0 0 6px 0 rgba(0, 0, 0, 0.1);background-color:var(
-            --assistantapps-version-dropdown-background-colour,
-            #ffffff
-        );list-style-type:none}.dd-input+.dd-menu{display:none}.dd-input:checked+.dd-menu{display:block}.dd-menu li{padding:10px 20px;cursor:pointer;white-space:nowrap}.dd-menu li:hover{background-color:var(
-            --assistantapps-version-dropdown-background-hover-colour,
-            #f6f6f6
-        )}.dd-menu li.dd-menu-item{display:flex}.dd-menu li.dd-menu-item img{width:40px;height:40px;margin-right:1em}.dd-menu li.dd-menu-item p{display:flex;flex-direction:column;justify-content:center;margin:0;padding:0}.what-is-new-container{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));column-gap:1em;row-gap:1em;margin-bottom:3em}@media only screen and (max-width: 1000px){.what-is-new-container{grid-template-columns:repeat(2, minmax(0, 1fr));column-gap:0.5em;row-gap:0.5em}}@media only screen and (max-width: 600px){.what-is-new-container{grid-template-columns:repeat(1, minmax(0, 1fr));column-gap:0.5em;row-gap:0.5em}}</style>`;
+      --assistantapps-font-family,
+      "Roboto",
+      Helvetica,
+      Arial,
+      sans-serif
+    )}.noselect{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.dropdown{display:inline-block;position:relative;margin-bottom:1em;z-index:20}.dd-button{display:flex;border:1px solid gray;border-radius:4px;padding:10px 30px 10px 10px;background-color:var(
+      --assistantapps-version-dropdown-background-colour,
+      #ffffff
+    );cursor:pointer;white-space:nowrap}.dd-button:after{content:"";position:absolute;top:50%;right:15px;transform:translateY(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid
+      var(--assistantapps-version-dropdown-background-colour, #ffffff)}.dd-button:hover{background-color:var(
+      --assistantapps-version-dropdown-background-hover-colour,
+      #eeeeee
+    )}.dd-button img{width:20px;height:20px;margin-right:0.5em}.dd-button p{display:flex;flex-direction:column;justify-content:center;margin:0;padding:0}.dd-input{display:none}.dd-menu{position:absolute;top:100%;border:1px solid #ccc;border-radius:4px;padding:0;margin:2px 0 0 0;box-shadow:0 0 6px 0 rgba(0, 0, 0, 0.1);background-color:var(
+      --assistantapps-version-dropdown-background-colour,
+      #ffffff
+    );list-style-type:none}.dd-input+.dd-menu{display:none}.dd-input:checked+.dd-menu{display:block}.dd-menu li{padding:10px 20px;cursor:pointer;white-space:nowrap}.dd-menu li:hover{background-color:var(
+      --assistantapps-version-dropdown-background-hover-colour,
+      #f6f6f6
+    )}.dd-menu li.dd-menu-item{display:flex}.dd-menu li.dd-menu-item img{width:40px;height:40px;margin-right:1em}.dd-menu li.dd-menu-item p{display:flex;flex-direction:column;justify-content:center;margin:0;padding:0}.what-is-new-container{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));column-gap:1em;row-gap:1em;margin-bottom:3em}@media only screen and (max-width: 1000px){.what-is-new-container{grid-template-columns:repeat(2, minmax(0, 1fr));column-gap:0.5em;row-gap:0.5em}}@media only screen and (max-width: 600px){.what-is-new-container{grid-template-columns:repeat(1, minmax(0, 1fr));column-gap:0.5em;row-gap:0.5em}}</style>`;
 
     		init(
     			this,
@@ -1940,70 +1941,58 @@
 
     customElements.define("assistant-apps-version-search-tile", VersionSearchTile);
 
-    const TeamMembers = [
-        {
-            name: 'Kurt (KhaozTopsy)',
-            role: 'Creator / Software Engineer',
-            imageUrl: 'https://cdn.assistantapps.com/team/KhaozTopsy.png',
-            link: 'https://kurtlourens.com?ref=assistantAppsDocs',
-            linkName: 'KurtLourens.com',
-        },
-        {
-            name: 'Robo',
-            role: 'App Developer',
-            imageUrl: 'https://cdn.assistantapps.com/team/Robo.png',
-        },
-        {
-            name: 'LionessLilo',
-            role: 'Graphic Design',
-            imageUrl: 'https://cdn.assistantapps.com/team/LionessLilo.jpg',
-            link: 'https://lionesslilo.com?ref=assistantAppsDocs',
-            linkName: 'LionessLilo.com',
-        },
-        {
-            name: 'Sphynxcolt',
-            role: 'Discord Admin',
-            imageUrl: 'https://cdn.assistantapps.com/team/Sphynxcolt.png',
-        },
-        {
-            name: 'Lenni',
-            role: 'German Translator | Bug finder | NMS Expert',
-            imageUrl: 'https://cdn.nmsassistant.com/ApiUploads/CommunityLinks/lenni.png',
-        },
-        {
-            name: 'Cyberpunk2350',
-            role: 'Moderator | NMS Dataminer | Keeper of Obscure Knowledge',
-            imageUrl: 'https://nmsassistant.com/assets/img/collaborators/cyberpunk2350.png',
-        },
-    ];
-
     /* D:\Development\Projects\AssistantApps\AssistantApps.WebComponents\src\module\team\teamList.svelte generated by Svelte v3.44.2 */
     const file$3 = "D:\\Development\\Projects\\AssistantApps\\AssistantApps.WebComponents\\src\\module\\team\\teamList.svelte";
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[0] = list[i];
+    	child_ctx[3] = list[i];
     	return child_ctx;
     }
 
-    // (7:2) {#each TeamMembers as teamMember}
+    // (24:2) {#each teamMembers as teamMember}
     function create_each_block(ctx) {
     	let assistant_apps_team_tile;
+    	let assistant_apps_team_tile_name_value;
+    	let assistant_apps_team_tile_role_value;
+    	let assistant_apps_team_tile_imageurl_value;
+    	let assistant_apps_team_tile_linkname_value;
+    	let assistant_apps_team_tile_linkurl_value;
 
     	const block = {
     		c: function create() {
     			assistant_apps_team_tile = element("assistant-apps-team-tile");
-    			set_custom_element_data(assistant_apps_team_tile, "name", /*teamMember*/ ctx[0].name);
-    			set_custom_element_data(assistant_apps_team_tile, "role", /*teamMember*/ ctx[0].role);
-    			set_custom_element_data(assistant_apps_team_tile, "imageurl", /*teamMember*/ ctx[0].imageUrl);
-    			set_custom_element_data(assistant_apps_team_tile, "link", /*teamMember*/ ctx[0].link);
-    			set_custom_element_data(assistant_apps_team_tile, "linkname", /*teamMember*/ ctx[0].linkName);
-    			add_location(assistant_apps_team_tile, file$3, 7, 4, 218);
+    			set_custom_element_data(assistant_apps_team_tile, "name", assistant_apps_team_tile_name_value = /*teamMember*/ ctx[3].name);
+    			set_custom_element_data(assistant_apps_team_tile, "role", assistant_apps_team_tile_role_value = /*teamMember*/ ctx[3].role);
+    			set_custom_element_data(assistant_apps_team_tile, "imageurl", assistant_apps_team_tile_imageurl_value = /*teamMember*/ ctx[3].imageUrl);
+    			set_custom_element_data(assistant_apps_team_tile, "linkname", assistant_apps_team_tile_linkname_value = /*teamMember*/ ctx[3].linkName);
+    			set_custom_element_data(assistant_apps_team_tile, "linkurl", assistant_apps_team_tile_linkurl_value = /*teamMember*/ ctx[3].linkUrl);
+    			add_location(assistant_apps_team_tile, file$3, 24, 4, 861);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, assistant_apps_team_tile, anchor);
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*teamMembers*/ 1 && assistant_apps_team_tile_name_value !== (assistant_apps_team_tile_name_value = /*teamMember*/ ctx[3].name)) {
+    				set_custom_element_data(assistant_apps_team_tile, "name", assistant_apps_team_tile_name_value);
+    			}
+
+    			if (dirty & /*teamMembers*/ 1 && assistant_apps_team_tile_role_value !== (assistant_apps_team_tile_role_value = /*teamMember*/ ctx[3].role)) {
+    				set_custom_element_data(assistant_apps_team_tile, "role", assistant_apps_team_tile_role_value);
+    			}
+
+    			if (dirty & /*teamMembers*/ 1 && assistant_apps_team_tile_imageurl_value !== (assistant_apps_team_tile_imageurl_value = /*teamMember*/ ctx[3].imageUrl)) {
+    				set_custom_element_data(assistant_apps_team_tile, "imageurl", assistant_apps_team_tile_imageurl_value);
+    			}
+
+    			if (dirty & /*teamMembers*/ 1 && assistant_apps_team_tile_linkname_value !== (assistant_apps_team_tile_linkname_value = /*teamMember*/ ctx[3].linkName)) {
+    				set_custom_element_data(assistant_apps_team_tile, "linkname", assistant_apps_team_tile_linkname_value);
+    			}
+
+    			if (dirty & /*teamMembers*/ 1 && assistant_apps_team_tile_linkurl_value !== (assistant_apps_team_tile_linkurl_value = /*teamMember*/ ctx[3].linkUrl)) {
+    				set_custom_element_data(assistant_apps_team_tile, "linkurl", assistant_apps_team_tile_linkurl_value);
+    			}
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(assistant_apps_team_tile);
     		}
@@ -2013,7 +2002,7 @@
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(7:2) {#each TeamMembers as teamMember}",
+    		source: "(24:2) {#each teamMembers as teamMember}",
     		ctx
     	});
 
@@ -2022,7 +2011,7 @@
 
     function create_fragment$3(ctx) {
     	let div;
-    	let each_value = TeamMembers;
+    	let each_value = /*teamMembers*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -2040,7 +2029,7 @@
 
     			this.c = noop;
     			attr_dev(div, "class", "team-members-container noselect");
-    			add_location(div, file$3, 5, 0, 130);
+    			add_location(div, file$3, 22, 0, 773);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2053,8 +2042,8 @@
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*TeamMembers*/ 0) {
-    				each_value = TeamMembers;
+    			if (dirty & /*teamMembers*/ 1) {
+    				each_value = /*teamMembers*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
 
@@ -2099,14 +2088,51 @@
     function instance$3($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('assistant-apps-team-list', slots, []);
+    	let teamMembersState = NetworkState.Loading;
+    	let teamMembers = [];
+
+    	const fetchTeamMembers = async () => {
+    		const aaApi = new AssistantAppsApiService();
+    		const teamMembersListResult = await aaApi.getTeamMembersList();
+
+    		if (teamMembersListResult.isSuccess === false) {
+    			teamMembersState = NetworkState.Error;
+    			return;
+    		}
+
+    		$$invalidate(0, teamMembers = teamMembersListResult.value);
+    		teamMembersState = NetworkState.Success;
+    	};
+
+    	onMount(async () => {
+    		fetchTeamMembers();
+    	});
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<assistant-apps-team-list> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ TeamMembers });
-    	return [];
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		AssistantAppsApiService,
+    		NetworkState,
+    		teamMembersState,
+    		teamMembers,
+    		fetchTeamMembers
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('teamMembersState' in $$props) teamMembersState = $$props.teamMembersState;
+    		if ('teamMembers' in $$props) $$invalidate(0, teamMembers = $$props.teamMembers);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [teamMembers];
     }
 
     class TeamList extends SvelteElement {
@@ -2149,7 +2175,7 @@
 
     const file$2 = "D:\\Development\\Projects\\AssistantApps\\AssistantApps.WebComponents\\src\\module\\team\\teamTile.svelte";
 
-    // (15:4) {#if link != null && linkname != null}
+    // (15:4) {#if linkurl != null && linkname != null}
     function create_if_block(ctx) {
     	let a;
     	let t;
@@ -2157,21 +2183,21 @@
     	const block = {
     		c: function create() {
     			a = element("a");
-    			t = text(/*linkname*/ ctx[4]);
-    			attr_dev(a, "href", /*link*/ ctx[3]);
+    			t = text(/*linkname*/ ctx[3]);
+    			attr_dev(a, "href", /*linkurl*/ ctx[4]);
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "rel", "noopener noreferrer");
-    			add_location(a, file$2, 15, 6, 473);
+    			add_location(a, file$2, 15, 6, 479);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
     			append_dev(a, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*linkname*/ 16) set_data_dev(t, /*linkname*/ ctx[4]);
+    			if (dirty & /*linkname*/ 8) set_data_dev(t, /*linkname*/ ctx[3]);
 
-    			if (dirty & /*link*/ 8) {
-    				attr_dev(a, "href", /*link*/ ctx[3]);
+    			if (dirty & /*linkurl*/ 16) {
+    				attr_dev(a, "href", /*linkurl*/ ctx[4]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -2183,7 +2209,7 @@
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(15:4) {#if link != null && linkname != null}",
+    		source: "(15:4) {#if linkurl != null && linkname != null}",
     		ctx
     	});
 
@@ -2202,7 +2228,7 @@
     	let p;
     	let t3;
     	let t4;
-    	let if_block = /*link*/ ctx[3] != null && /*linkname*/ ctx[4] != null && create_if_block(ctx);
+    	let if_block = /*linkurl*/ ctx[4] != null && /*linkname*/ ctx[3] != null && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
@@ -2221,15 +2247,15 @@
     			if (!src_url_equal(img.src, img_src_value = /*imageurl*/ ctx[2])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", /*name*/ ctx[0]);
     			attr_dev(img, "class", "team-member-img");
-    			add_location(img, file$2, 10, 2, 236);
+    			add_location(img, file$2, 10, 2, 239);
     			attr_dev(h3, "class", "team-member-name");
-    			add_location(h3, file$2, 12, 4, 337);
+    			add_location(h3, file$2, 12, 4, 340);
     			attr_dev(p, "class", "team-member-role");
-    			add_location(p, file$2, 13, 4, 383);
+    			add_location(p, file$2, 13, 4, 386);
     			attr_dev(div0, "class", "team-member-contents");
-    			add_location(div0, file$2, 11, 2, 297);
+    			add_location(div0, file$2, 11, 2, 300);
     			attr_dev(div1, "class", "team-member");
-    			add_location(div1, file$2, 9, 0, 207);
+    			add_location(div1, file$2, 9, 0, 210);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2259,7 +2285,7 @@
     			if (dirty & /*name*/ 1) set_data_dev(t1, /*name*/ ctx[0]);
     			if (dirty & /*role*/ 2) set_data_dev(t3, /*role*/ ctx[1]);
 
-    			if (/*link*/ ctx[3] != null && /*linkname*/ ctx[4] != null) {
+    			if (/*linkurl*/ ctx[4] != null && /*linkname*/ ctx[3] != null) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -2297,9 +2323,9 @@
     	let { name = "" } = $$props;
     	let { role = "" } = $$props;
     	let { imageurl = "" } = $$props;
-    	let { link = "" } = $$props;
     	let { linkname = "" } = $$props;
-    	const writable_props = ['name', 'role', 'imageurl', 'link', 'linkname'];
+    	let { linkurl = "" } = $$props;
+    	const writable_props = ['name', 'role', 'imageurl', 'linkname', 'linkurl'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<assistant-apps-team-tile> was created with unknown prop '${key}'`);
@@ -2309,25 +2335,25 @@
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
     		if ('role' in $$props) $$invalidate(1, role = $$props.role);
     		if ('imageurl' in $$props) $$invalidate(2, imageurl = $$props.imageurl);
-    		if ('link' in $$props) $$invalidate(3, link = $$props.link);
-    		if ('linkname' in $$props) $$invalidate(4, linkname = $$props.linkname);
+    		if ('linkname' in $$props) $$invalidate(3, linkname = $$props.linkname);
+    		if ('linkurl' in $$props) $$invalidate(4, linkurl = $$props.linkurl);
     	};
 
-    	$$self.$capture_state = () => ({ name, role, imageurl, link, linkname });
+    	$$self.$capture_state = () => ({ name, role, imageurl, linkname, linkurl });
 
     	$$self.$inject_state = $$props => {
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
     		if ('role' in $$props) $$invalidate(1, role = $$props.role);
     		if ('imageurl' in $$props) $$invalidate(2, imageurl = $$props.imageurl);
-    		if ('link' in $$props) $$invalidate(3, link = $$props.link);
-    		if ('linkname' in $$props) $$invalidate(4, linkname = $$props.linkname);
+    		if ('linkname' in $$props) $$invalidate(3, linkname = $$props.linkname);
+    		if ('linkurl' in $$props) $$invalidate(4, linkurl = $$props.linkurl);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [name, role, imageurl, link, linkname];
+    	return [name, role, imageurl, linkname, linkurl];
     }
 
     class TeamTile extends SvelteElement {
@@ -2354,8 +2380,8 @@
     				name: 0,
     				role: 1,
     				imageurl: 2,
-    				link: 3,
-    				linkname: 4
+    				linkname: 3,
+    				linkurl: 4
     			},
     			null
     		);
@@ -2373,7 +2399,7 @@
     	}
 
     	static get observedAttributes() {
-    		return ["name", "role", "imageurl", "link", "linkname"];
+    		return ["name", "role", "imageurl", "linkname", "linkurl"];
     	}
 
     	get name() {
@@ -2403,21 +2429,21 @@
     		flush();
     	}
 
-    	get link() {
-    		return this.$$.ctx[3];
-    	}
-
-    	set link(link) {
-    		this.$$set({ link });
-    		flush();
-    	}
-
     	get linkname() {
-    		return this.$$.ctx[4];
+    		return this.$$.ctx[3];
     	}
 
     	set linkname(linkname) {
     		this.$$set({ linkname });
+    		flush();
+    	}
+
+    	get linkurl() {
+    		return this.$$.ctx[4];
+    	}
+
+    	set linkurl(linkurl) {
+    		this.$$set({ linkurl });
     		flush();
     	}
     }
