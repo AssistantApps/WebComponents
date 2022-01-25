@@ -22,23 +22,12 @@
 <style>
   .team-member {
     display: flex;
-    margin-bottom: 1em;
     padding-bottom: 1em;
-    border-bottom: 1px solid
-      var(
-        --assistantapps-team-member-background-colour,
-        rgba(255, 255, 255, 0.1)
-      );
-  }
-
-  .team-member:last-child {
-    border-bottom: none;
   }
 
   .team-member img.team-member-img {
     width: 75px;
     height: 75px;
-
     border-radius: 5px;
   }
 

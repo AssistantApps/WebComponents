@@ -69,4 +69,18 @@
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
+
+  assistant-apps-team-tile {
+    display: block;
+    margin-bottom: 1em;
+    border-bottom: 1px solid
+      var(
+        --assistantapps-team-member-background-colour,
+        rgba(255, 255, 255, 0.1)
+      );
+  }
+
+  assistant-apps-team-tile:last-child {
+    border-bottom: none;
+  }
 </style>
