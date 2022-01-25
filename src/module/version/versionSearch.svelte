@@ -39,7 +39,11 @@
       page: 1,
     };
     const whatIsNewResult = await aaApi.getWhatIsNewItems(search);
-    if (whatIsNewResult.isSuccess === false) {
+    if (
+      whatIsNewResult.isSuccess == false ||
+      whatIsNewResult.value == null ||
+      whatIsNewResult.value.length < 1
+    ) {
       networkState = NetworkState.Error;
       return;
     }

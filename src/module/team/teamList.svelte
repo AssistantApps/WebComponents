@@ -12,7 +12,11 @@
   const fetchTeamMembers = async () => {
     const aaApi = new AssistantAppsApiService();
     const teamMembersListResult = await aaApi.getTeamMembersList();
-    if (teamMembersListResult.isSuccess === false) {
+    if (
+      teamMembersListResult.isSuccess == false ||
+      teamMembersListResult.value == null ||
+      teamMembersListResult.value.length < 1
+    ) {
       teamMembersState = NetworkState.Error;
       return;
     }
