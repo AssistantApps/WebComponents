@@ -1,9 +1,9 @@
 ﻿/* Auto Generated */
 
-import type { TranslationSubmissionViewModel } from "./translationSubmissionViewModel";
+import { TranslationSubmissionViewModel } from "./translationSubmissionViewModel";
 
 export interface TranslationSubmissionWithVotesViewModel extends TranslationSubmissionViewModel {
-    guid: any;
+    guid: string;
     username: string;
     votes: number;
     isCurentVote: boolean;

@@ -1,8 +1,8 @@
 ﻿/* Auto Generated */
 
 export interface VersionViewModel {
-    guid: any;
-    appGuid: any;
+    guid: string;
+    appGuid: string;
     markdown: string;
     buildName: string;
     buildNumber: number;

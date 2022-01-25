@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface TranslationKeyViewModel {
-    guid: any;
+    guid: string;
     key: string;
     appGuids: any[];
     meta: string;

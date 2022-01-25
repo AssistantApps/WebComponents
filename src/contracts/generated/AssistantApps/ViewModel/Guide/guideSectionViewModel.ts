@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface GuideSectionViewModel {
-    guid: any;
+    guid: string;
     heading: string;
     sortOrder: number;
     items: any[];

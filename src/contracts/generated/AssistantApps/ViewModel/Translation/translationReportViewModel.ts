@@ -2,8 +2,8 @@
 
 export interface TranslationReportViewModel {
     translationKey: string;
-    translationGuid: any;
-    languageGuid: any;
+    translationGuid: string;
+    languageGuid: string;
     origText: string;
     offendingText: string;
     additionalMessage: string;

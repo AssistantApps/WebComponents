@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface AddGuideViewModel {
-    appGuid: any;
+    appGuid: string;
     title: string;
     subTitle: string;
     showCreatedByUser: boolean;

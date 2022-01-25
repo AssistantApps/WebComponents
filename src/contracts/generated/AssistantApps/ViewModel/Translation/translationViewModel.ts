@@ -1,10 +1,10 @@
 ﻿/* Auto Generated */
 
 export interface TranslationViewModel {
-    guid: any;
-    translationKeyGuid: any;
-    languageGuid: any;
+    guid: string;
+    translationKeyGuid: string;
+    languageGuid: string;
     text: string;
-    userGuid: any;
+    userGuid: string;
     dateSubmitted: Date;
 }

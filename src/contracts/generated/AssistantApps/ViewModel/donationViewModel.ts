@@ -1,10 +1,10 @@
 ﻿/* Auto Generated */
 
-import type { DonationType } from "./../Enum/donationType";
+import { DonationType } from "./../Enum/donationType";
 
 export interface DonationViewModel {
-    guid: any;
-    userGuid?: any;
+    guid: string;
+    userGuid?: string;
     username: string;
     email: string;
     type: DonationType;

@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface WebhookMessageViewModel {
-    guid: any;
+    guid: string;
     url: string;
     message: string;
     hashIdentifier: string;

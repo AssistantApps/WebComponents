@@ -5,4 +5,5 @@ export enum AdminApprovalStatus {
     inReview,
     denied,
     approved,
+    cancelled,
 }

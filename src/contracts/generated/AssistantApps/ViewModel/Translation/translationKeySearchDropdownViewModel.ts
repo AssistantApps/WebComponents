@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface TranslationKeySearchDropdownViewModel {
-    guid: any;
+    guid: string;
     key: string;
     value: string;
     translation: string;

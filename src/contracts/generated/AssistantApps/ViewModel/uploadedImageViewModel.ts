@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface UploadedImageViewModel {
-    guid: any;
+    guid: string;
     url: string;
     blurHash: string;
 }

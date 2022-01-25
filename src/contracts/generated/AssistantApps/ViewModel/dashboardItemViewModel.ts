@@ -1,6 +1,6 @@
 ﻿/* Auto Generated */
 
-import type { DashboardItemType } from "./../Enum/dashboardItemType";
+import { DashboardItemType } from "./../Enum/dashboardItemType";
 
 export interface DashboardItemViewModel {
     type: DashboardItemType;

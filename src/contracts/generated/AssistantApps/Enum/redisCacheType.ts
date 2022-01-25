@@ -7,4 +7,5 @@ export enum RedisCacheType {
     patreonList,
     steamNews,
     steamBranches,
+    twitchAuthToken,
 }

@@ -2,6 +2,6 @@
 
 export interface TranslationSearchViewModel {
     appGuidList: any[];
-    languageGuid?: any;
+    languageGuid?: string;
     showOnlyUntranslated: boolean;
 }

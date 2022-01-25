@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface UserViewModel {
-    guid: any;
+    guid: string;
     profileImageUrl: string;
     username: string;
     joinDate: Date;

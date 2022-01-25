@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface VersionSearchViewModel {
-    appGuid: any;
+    appGuid: string;
     platforms: any[];
     languageCode: string;
     page: number;

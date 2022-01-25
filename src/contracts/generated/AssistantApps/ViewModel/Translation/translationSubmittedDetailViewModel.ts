@@ -1,8 +1,8 @@
 ﻿/* Auto Generated */
 
 export interface TranslationSubmittedDetailViewModel {
-    guid: any;
-    userGuid: any;
+    guid: string;
+    userGuid: string;
     username: string;
     email: string;
     transKey: string;

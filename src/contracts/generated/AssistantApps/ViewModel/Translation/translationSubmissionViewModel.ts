@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface TranslationSubmissionViewModel {
-    translationKeyGuid: any;
-    languageGuid: any;
+    translationKeyGuid: string;
+    languageGuid: string;
     text: string;
 }

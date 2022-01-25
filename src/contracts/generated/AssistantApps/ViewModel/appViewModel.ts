@@ -1,7 +1,7 @@
 ﻿/* Auto Generated */
 
 export interface AppViewModel {
-    guid: any;
+    guid: string;
     name: string;
     gameName: string;
     iconUrl: string;
