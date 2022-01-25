@@ -26,15 +26,21 @@
 </script>
 
 <div class="team-members-container noselect">
-  {#each teamMembers as teamMember}
-    <assistant-apps-team-tile
-      name={teamMember.name}
-      role={teamMember.role}
-      imageurl={teamMember.imageUrl}
-      linkname={teamMember.linkName}
-      linkurl={teamMember.linkUrl}
-    />
-  {/each}
+  {#if teamMembersState === NetworkState.Loading}
+    <span>Loading...</span>
+  {:else if teamMembersState === NetworkState.Error}
+    <span>Something went wrong...</span>
+  {:else}
+    {#each teamMembers as teamMember}
+      <assistant-apps-team-tile
+        name={teamMember.name}
+        role={teamMember.role}
+        imageurl={teamMember.imageUrl}
+        linkname={teamMember.linkName}
+        linkurl={teamMember.linkUrl}
+      />
+    {/each}
+  {/if}
 </div>
 
 <style>
