@@ -6,7 +6,7 @@
   import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
   import { NetworkState } from "../../contracts/NetworkState";
 
-  let teamMembersState: NetworkState = NetworkState.Loading;
+  let networkState: NetworkState = NetworkState.Loading;
   let teamMembers: Array<TeamMemberViewModel> = [];
 
   const fetchTeamMembers = async () => {
@@ -17,11 +17,11 @@
       teamMembersListResult.value == null ||
       teamMembersListResult.value.length < 1
     ) {
-      teamMembersState = NetworkState.Error;
+      networkState = NetworkState.Error;
       return;
     }
     teamMembers = teamMembersListResult.value;
-    teamMembersState = NetworkState.Success;
+    networkState = NetworkState.Success;
   };
 
   onMount(async () => {
@@ -29,21 +29,31 @@
   });
 </script>
 
-<div class="team-members-container noselect">
-  {#if teamMembersState === NetworkState.Loading}
-    <span>Loading...</span>
-  {:else if teamMembersState === NetworkState.Error}
-    <span>Something went wrong...</span>
+<div class="noselect">
+  {#if networkState === NetworkState.Loading}
+    <slot name="loading">
+      <div style="text-align: center">
+        <span>Loading...</span>
+      </div>
+    </slot>
+  {:else if networkState === NetworkState.Error}
+    <slot name="error">
+      <div style="text-align: center">
+        <span>Something went wrong...</span>
+      </div>
+    </slot>
   {:else}
-    {#each teamMembers as teamMember}
-      <assistant-apps-team-tile
-        name={teamMember.name}
-        role={teamMember.role}
-        imageurl={teamMember.imageUrl}
-        linkname={teamMember.linkName}
-        linkurl={teamMember.linkUrl}
-      />
-    {/each}
+    <div class="team-members-container">
+      {#each teamMembers as teamMember}
+        <assistant-apps-team-tile
+          name={teamMember.name}
+          role={teamMember.role}
+          imageurl={teamMember.imageUrl}
+          linkname={teamMember.linkName}
+          linkurl={teamMember.linkUrl}
+        />
+      {/each}
+    </div>
   {/if}
 </div>
 

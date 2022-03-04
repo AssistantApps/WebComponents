@@ -20,16 +20,23 @@
 
   const fetchApps = async () => {
     const appsResult = await aaApi.getApps();
-    if (appsResult.isSuccess === false) {
+    if (
+      appsResult.isSuccess === false ||
+      appsResult.value == null ||
+      appsResult.value.length < 1
+    ) {
       networkState = NetworkState.Error;
       return;
     }
+
     appLookup = appsResult.value;
     selectedApp = appsResult.value[0];
     networkState = NetworkState.Success;
   };
 
   const fetchWhatIsNewItems = async (appSelected: AppViewModel) => {
+    if (appSelected == null) return;
+
     selectedApp = appSelected;
     networkState = NetworkState.Loading;
     const search: VersionSearchViewModel = {
@@ -47,7 +54,7 @@
       networkState = NetworkState.Error;
       return;
     }
-    console.log(whatIsNewResult);
+
     whatIsNewPagination = whatIsNewResult;
     networkState = NetworkState.Success;
   };
@@ -58,52 +65,62 @@
   });
 </script>
 
-<div class="version-container noselect">
+<div class="noselect">
   {#if networkState === NetworkState.Loading}
-    <span>Loading...</span>
+    <slot name="loading">
+      <div style="text-align: center">
+        <span>Loading...</span>
+      </div>
+    </slot>
   {:else if networkState === NetworkState.Error}
-    <span>Something went wrong...</span>
+    <slot name="error">
+      <div style="text-align: center">
+        <span>Something went wrong...</span>
+      </div>
+    </slot>
   {:else}
-    <label class="dropdown">
-      {#if selectedApp != null}
-        <div class="dd-button">
-          <img src={selectedApp.iconUrl} alt={selectedApp.name} />
-          <p>{selectedApp.name}</p>
-        </div>
-      {:else}
-        <div class="dd-button">
-          <p>Please Select an App</p>
-        </div>
-      {/if}
-      <input type="checkbox" class="dd-input" />
-      <ul class="dd-menu">
-        {#each appLookup as app}
-          <li
-            class="dd-menu-item"
-            value={app.guid}
-            on:click={() => fetchWhatIsNewItems(app)}
-          >
-            <img src={app.iconUrl} alt={app.name} />
-            <p>{app.name}</p>
-          </li>
-        {/each}
-      </ul>
-    </label>
+    <div class="version-container">
+      <label class="dropdown">
+        {#if selectedApp != null}
+          <div class="dd-button">
+            <img src={selectedApp.iconUrl} alt={selectedApp.name} />
+            <p>{selectedApp.name}</p>
+          </div>
+        {:else}
+          <div class="dd-button">
+            <p>Please Select an App</p>
+          </div>
+        {/if}
+        <input type="checkbox" class="dd-input" />
+        <ul class="dd-menu">
+          {#each appLookup as app}
+            <li
+              class="dd-menu-item"
+              value={app.guid}
+              on:click={() => fetchWhatIsNewItems(app)}
+            >
+              <img src={app.iconUrl} alt={app.name} />
+              <p>{app.name}</p>
+            </li>
+          {/each}
+        </ul>
+      </label>
 
-    <div class="what-is-new-container noselect">
-      {#each whatIsNewPagination.value ?? [] as whatIsNewItem}
-        <assistant-apps-version-search-tile
-          guid={whatIsNewItem.guid}
-          markdown={whatIsNewItem.markdown}
-          buildname={whatIsNewItem.buildName}
-          buildnumber={whatIsNewItem.buildNumber}
-          platforms={whatIsNewItem.platforms}
-          activedate={whatIsNewItem.activeDate}
-        />
-      {/each}
-      {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}
-        <p>No items to display</p>
-      {/if}
+      <div class="what-is-new-container noselect">
+        {#each whatIsNewPagination.value ?? [] as whatIsNewItem}
+          <assistant-apps-version-search-tile
+            guid={whatIsNewItem.guid}
+            markdown={whatIsNewItem.markdown}
+            buildname={whatIsNewItem.buildName}
+            buildnumber={whatIsNewItem.buildNumber}
+            platforms={whatIsNewItem.platforms}
+            activedate={whatIsNewItem.activeDate}
+          />
+        {/each}
+        {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}
+          <p>No items to display</p>
+        {/if}
+      </div>
     </div>
   {/if}
 </div>
