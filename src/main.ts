@@ -7,3 +7,6 @@ export * from './module/team/teamTile.svelte';
 export * from './shared/markdown.svelte';
 
 export * from './App.svelte';
+
+const version = process?.env?.npm_package_version ?? '???';
+console.log(`AssistantApps.WebComponents v${version}`)
