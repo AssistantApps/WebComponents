@@ -134,6 +134,7 @@
       Arial,
       sans-serif
     );
+    font-weight: var(--assistantapps-font-weight, "bold");
   }
 
   .noselect {
