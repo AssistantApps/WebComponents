@@ -79,7 +79,7 @@
     margin-bottom: 3em;
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1300px) {
     .patreon-container {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: 0.5em;
@@ -87,7 +87,7 @@
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 800px) {
     .patreon-container {
       grid-template-columns: repeat(1, minmax(0, 1fr));
       column-gap: 0.5em;
