@@ -20,6 +20,17 @@
 </div>
 
 <style>
+  * {
+    font-family: var(
+      --assistantapps-font-family,
+      "Roboto",
+      Helvetica,
+      Arial,
+      sans-serif
+    );
+    font-weight: var(--assistantapps-font-weight, "bold");
+  }
+
   .team-member {
     display: flex;
     padding-bottom: 1em;

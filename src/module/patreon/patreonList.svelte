@@ -6,7 +6,7 @@
   import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
   import { NetworkState } from "../../contracts/NetworkState";
 
-  let patreonState: NetworkState = NetworkState.Loading;
+  let networkState: NetworkState = NetworkState.Loading;
   let patrons: Array<PatreonViewModel> = [];
 
   const fetchPatreons = async () => {
@@ -17,11 +17,11 @@
       patreonListResult.value == null ||
       patreonListResult.value.length < 1
     ) {
-      patreonState = NetworkState.Error;
+      networkState = NetworkState.Error;
       return;
     }
     patrons = patreonListResult.value;
-    patreonState = NetworkState.Success;
+    networkState = NetworkState.Success;
   };
 
   onMount(async () => {
@@ -29,18 +29,28 @@
   });
 </script>
 
-<div class="patreon-container noselect">
-  {#if patreonState === NetworkState.Loading}
-    <span>Loading...</span>
-  {:else if patreonState === NetworkState.Error}
-    <span>Something went wrong...</span>
+<div class="noselect">
+  {#if networkState === NetworkState.Loading}
+    <slot name="loading">
+      <div style="text-align: center">
+        <span>Loading...</span>
+      </div>
+    </slot>
+  {:else if networkState === NetworkState.Error}
+    <slot name="error">
+      <div style="text-align: center">
+        <span>Something went wrong...</span>
+      </div>
+    </slot>
   {:else}
-    {#each patrons as patron}
-      <assistant-apps-patron-tile
-        name={patron.name}
-        imageurl={patron.imageUrl}
-      />
-    {/each}
+    <div class="patreon-container">
+      {#each patrons as patron}
+        <assistant-apps-patron-tile
+          name={patron.name}
+          imageurl={patron.imageUrl}
+        />
+      {/each}
+    </div>
   {/if}
 </div>
 
@@ -53,6 +63,7 @@
       Arial,
       sans-serif
     );
+    font-weight: var(--assistantapps-font-weight, "bold");
   }
 
   .noselect {
