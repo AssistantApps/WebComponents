@@ -22,6 +22,16 @@
 </div>
 
 <style>
+  * {
+    font-family: var(
+      --assistantapps-font-family,
+      "Roboto",
+      Helvetica,
+      Arial,
+      sans-serif
+    );
+  }
+
   .version {
     display: flex;
     flex-direction: column;
