@@ -9,7 +9,6 @@
 </script>
 
 <div class="noselect">
-  <slot name="loading" />
   {#if networkstate == NetworkState.Loading}
     {#if customloading}
       <slot name="loading" />
