@@ -4,7 +4,7 @@
   import { marked } from "marked";
   let _marked = marked;
 
-  export const source: string = "";
+  export let source: string = "";
 </script>
 
 <div class="markdown">

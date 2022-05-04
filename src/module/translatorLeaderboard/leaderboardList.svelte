@@ -86,4 +86,32 @@
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
+
+  .leaderboard-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1em;
+    row-gap: 1em;
+    margin-bottom: 3em;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .leaderboard-container {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 0.5em;
+      row-gap: 0.5em;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .leaderboard-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .leaderboard-container {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
 </style>

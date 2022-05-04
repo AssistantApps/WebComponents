@@ -4,8 +4,8 @@
   import { NetworkState } from "../contracts/NetworkState";
 
   export let networkstate: NetworkState;
-  export let customloading: boolean;
-  export let customerror: boolean;
+  export let customloading: boolean = false;
+  export let customerror: boolean = false;
 </script>
 
 <div class="noselect">
