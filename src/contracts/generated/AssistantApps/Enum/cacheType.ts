@@ -14,4 +14,12 @@ export enum CacheType {
     emojiLeaderboard,
     kurtBlogRss,
     kurtIsLive,
+    teamMembers,
+    translators,
+    translatorLeaderboard,
+    badges,
+    exportLang,
+    translationsGraph,
+    twitchUserImg,
+    twitchUserData,
 }

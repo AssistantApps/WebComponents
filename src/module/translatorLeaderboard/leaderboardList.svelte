@@ -1,31 +1,38 @@
-<svelte:options tag="assistant-apps-patreon-list" />
+<svelte:options tag="assistant-apps-translation-leaderboard" />
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { PatreonViewModel } from "../../contracts/generated/AssistantApps/ViewModel/patreonViewModel";
+
+  import type { ResultWithValueAndPagination } from "../../contracts/results/ResultWithValue";
+  import type { TranslatorLeaderboardItemViewModel } from "../../contracts/generated/AssistantApps/ViewModel/Translation/translatorLeaderboardItemViewModel";
   import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
   import { NetworkState } from "../../contracts/NetworkState";
+  import { anyObject } from "../../helper/typescriptHacks";
 
   let networkState: NetworkState = NetworkState.Loading;
-  let patrons: Array<PatreonViewModel> = [];
+  let leaderBoardResult: ResultWithValueAndPagination<
+    Array<TranslatorLeaderboardItemViewModel>
+  > = anyObject;
 
-  const fetchPatreons = async () => {
+  const fetchLeaderboard = async () => {
     const aaApi = new AssistantAppsApiService();
-    const patreonListResult = await aaApi.getPatronsList();
+    const leaderboardListResult = await aaApi.getTranslators();
     if (
-      patreonListResult.isSuccess == false ||
-      patreonListResult.value == null ||
-      patreonListResult.value.length < 1
+      leaderboardListResult.isSuccess == false ||
+      leaderboardListResult.value == null ||
+      leaderboardListResult.value.isSuccess == false ||
+      leaderboardListResult.value.value == null ||
+      leaderboardListResult.value.value.length < 1
     ) {
       networkState = NetworkState.Error;
       return;
     }
-    patrons = patreonListResult.value;
+    leaderBoardResult = leaderboardListResult.value;
     networkState = NetworkState.Success;
   };
 
   onMount(async () => {
-    fetchPatreons();
+    fetchLeaderboard();
   });
 </script>
 
@@ -37,11 +44,15 @@
   >
     <slot name="loading" slot="loading" />
     <slot name="error" slot="error" />
-    <div slot="loaded" class="patreon-container">
-      {#each patrons as patron}
-        <assistant-apps-patron-tile
-          name={patron.name}
-          imageurl={patron.imageUrl}
+    <div slot="loaded" class="leaderboard-container">
+      {#each leaderBoardResult.value ?? [] as leaderBoardItem}
+        <assistant-apps-translation-leaderboard-tile
+          username={leaderBoardItem.username}
+          profileimageurl={leaderBoardItem.profileImageUrl}
+          numtranslations={leaderBoardItem.numTranslations}
+          numvotesgiven={leaderBoardItem.numVotesGiven}
+          numvotesreceived={leaderBoardItem.numVotesReceived}
+          total={leaderBoardItem.total}
         />
       {/each}
     </div>
@@ -74,29 +85,5 @@
     user-select: none;
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
-  }
-
-  .patreon-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 1em;
-    row-gap: 1em;
-    margin-bottom: 3em;
-  }
-
-  @media only screen and (max-width: 1300px) {
-    .patreon-container {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    .patreon-container {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
   }
 </style>
