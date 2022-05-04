@@ -1,10 +1,15 @@
 ﻿/* Auto Generated */
 
+import { TranslationReportStatus } from "./../../Enum/translationReportStatus";
+
 export interface TranslationReportViewModel {
-    translationKey: string;
+    guid: string;
+    userGuid: string;
     translationGuid: string;
     languageGuid: string;
-    origText: string;
-    offendingText: string;
-    additionalMessage: string;
+    reporterGuid: string;
+    reason: string;
+    dateEdited: Date;
+    dateSubmitted: Date;
+    status: TranslationReportStatus;
 }

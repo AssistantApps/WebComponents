@@ -6,8 +6,8 @@
   export let guid: any = "";
   export let markdown: string = "";
   export let buildname: string = "";
-  export let buildnumber: number = 0;
-  export let platforms: any[] = [];
+  // export let buildnumber: number = 0;
+  // export let platforms: any[] = [];
   export let activedate: Date = null;
 </script>
 

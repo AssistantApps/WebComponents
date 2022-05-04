@@ -30,20 +30,14 @@
 </script>
 
 <div class="noselect">
-  {#if networkState === NetworkState.Loading}
-    <slot name="loading">
-      <div style="text-align: center">
-        <span>Loading...</span>
-      </div>
-    </slot>
-  {:else if networkState === NetworkState.Error}
-    <slot name="error">
-      <div style="text-align: center">
-        <span>Something went wrong...</span>
-      </div>
-    </slot>
-  {:else}
-    <div class="patreon-container">
+  <assistant-apps-loading
+    networkstate={networkState}
+    customloading={$$slots.loading}
+    customerror={$$slots.error}
+  >
+    <slot name="loading" slot="loading" />
+    <slot name="error" slot="error" />
+    <div slot="loaded" class="patreon-container">
       {#each patrons as patron}
         <assistant-apps-patron-tile
           name={patron.name}
@@ -51,7 +45,7 @@
         />
       {/each}
     </div>
-  {/if}
+  </assistant-apps-loading>
 </div>
 
 <style>
