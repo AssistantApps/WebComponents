@@ -33,11 +33,11 @@
       {/if}
     </h4>
   </div>
-  <h4 class="total">
+  <h3 class="total">
     <assistant-apps-tooltip tooltiptext="Total points">
       {total} 🏆
     </assistant-apps-tooltip>
-  </h4>
+  </h3>
 </div>
 
 <style>
@@ -74,6 +74,7 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 1em;
+    max-width: calc(100% - 200px);
   }
 
   .leaderboard-item .leaderboard-item-name,
@@ -83,15 +84,16 @@
     color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
   }
 
+  .leaderboard-item .leaderboard-item-numbers {
+    padding-top: 0.5em;
+  }
+
   .leaderboard-item .leaderboard-item-name {
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .leaderboard-item .leaderboard-item-numbers {
-    padding-top: 0.25em;
+    line-height: 1.25em;
   }
 
   .leaderboard-item .leaderboard-item-numbers .stat {
@@ -107,8 +109,9 @@
   .leaderboard-item .total {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 1em;
+    justify-content: end;
+    margin-right: 0 1em 0 0;
     color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
+    width: 100px;
   }
 </style>
