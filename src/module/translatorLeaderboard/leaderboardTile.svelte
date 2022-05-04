@@ -110,7 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-right: 0 1em 0 0;
+    margin: 0 1em 0 0;
     color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
     width: 100px;
   }
