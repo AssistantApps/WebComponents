@@ -12,8 +12,8 @@
 <div class="leaderboard-item">
   <img src={profileimageurl} alt={username} class="leaderboard-item-img" />
   <div class="leaderboard-item-contents">
-    <h3 class="leaderboard-item-name">{username}</h3>
-    <p class="leaderboard-item-numbers">
+    <h2 class="leaderboard-item-name">{username}</h2>
+    <h4 class="leaderboard-item-numbers">
       {#if numtranslations > 0}
         <assistant-apps-tooltip tooltiptext="Number of translations submitted">
           <span class="stat">🌐 {numtranslations}</span>
@@ -31,13 +31,13 @@
           <span class="stat">🗳️ {numvotesreceived}</span>
         </assistant-apps-tooltip>
       {/if}
-    </p>
+    </h4>
   </div>
-  <div class="total">
+  <h4 class="total">
     <assistant-apps-tooltip tooltiptext="Total points">
       {total} 🏆
     </assistant-apps-tooltip>
-  </div>
+  </h4>
 </div>
 
 <style>
@@ -62,8 +62,8 @@
   }
 
   .leaderboard-item img.leaderboard-item-img {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
@@ -81,6 +81,13 @@
     margin: 0;
     padding: 0;
     color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
+  }
+
+  .leaderboard-item .leaderboard-item-name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .leaderboard-item .leaderboard-item-numbers {
