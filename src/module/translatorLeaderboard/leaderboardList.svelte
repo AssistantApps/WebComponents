@@ -37,11 +37,7 @@
 </script>
 
 <div class="noselect">
-  <assistant-apps-loading
-    networkstate={networkState}
-    customloading={$$slots.loading}
-    customerror={$$slots.error}
-  >
+  <assistant-apps-loading networkstate={networkState}>
     <slot name="loading" slot="loading" />
     <slot name="error" slot="error" />
     <div slot="loaded" class="leaderboard-container">
