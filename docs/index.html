@@ -10,17 +10,21 @@
 	<link rel="stylesheet" href="./global.css" />
 	<script defer src='./build/bundle.js'></script>
 	<script>
-		window.config = {};
-		window.config.apiUrl = 'http://localhost:55555';
+		window.config = {
+			apiUrl: 'http://localhost:55555'
+		};
 	</script>
 </head>
 
 <body>
 	<h1>AssistantApps WebComponents</h1>
-	<assistant-apps-patreon-list></assistant-apps-patreon-list>
-	<assistant-apps-version-search></assistant-apps-version-search>
-	<assistant-apps-team-list></assistant-apps-team-list>
-	<assistant-apps-translation-leaderboard></assistant-apps-translation-leaderboard>
+	<assistant-apps-patreon-list>
+		<span slot="loading">loading</span>
+		<span slot="error">error</span>
+	</assistant-apps-patreon-list>
+	<!-- <assistant-apps-version-search></assistant-apps-version-search> -->
+	<!-- <assistant-apps-team-list></assistant-apps-team-list> -->
+	<!-- <assistant-apps-translation-leaderboard></assistant-apps-translation-leaderboard> -->
 </body>
 
 </html>
