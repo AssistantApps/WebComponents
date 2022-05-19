@@ -13,11 +13,13 @@
   {#if networkstate == NetworkState.Error}
     <slot name="error">error</slot>
   {/if}
-  <slot name="loaded">
-    <div style="text-align: center">
-      <span>Nothing supplied in the <b>loaded</b> slot</span>
-    </div>
-  </slot>
+  {#if networkstate == NetworkState.Success}
+    <slot name="loaded">
+      <div style="text-align: center">
+        <span>Nothing supplied in the <b>loaded</b> slot</span>
+      </div>
+    </slot>
+  {/if}
 </div>
 
 <style>
