@@ -20,7 +20,15 @@
       networkState = NetworkState.Error;
       return;
     }
-    patrons = patreonListResult.value;
+    patrons = [
+      ...patreonListResult.value,
+      {
+        name: "Join Patreon",
+        imageUrl: "https://cdn.assistantapps.com/patreon.png",
+        thumbnailUrl: "https://cdn.assistantapps.com/patreon.png",
+        url: "https://patreon.com/AssistantApps",
+      },
+    ];
     networkState = NetworkState.Success;
   };
 
