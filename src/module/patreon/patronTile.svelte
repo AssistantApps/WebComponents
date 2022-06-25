@@ -1,14 +1,22 @@
 <svelte:options tag="assistant-apps-patron-tile" />
 
 <script lang="ts">
+  export let url: string;
   export let name: string = "";
   export let imageurl: string = "";
 </script>
 
-<div class="patron">
-  <img src={imageurl} alt={name} class="patron-img" />
-  <h2 class="patron-name">{name}</h2>
-</div>
+{#if url != null}
+  <a href={url} target="_blank" rel="noopener noreferrer" class="patron">
+    <img src={imageurl} alt={name} class="patron-img" />
+    <h2 class="patron-name">{name}</h2>
+  </a>
+{:else}
+  <div class="patron">
+    <img src={imageurl} alt={name} class="patron-img" />
+    <h2 class="patron-name">{name}</h2>
+  </div>
+{/if}
 
 <style>
   * {
@@ -26,6 +34,7 @@
     display: flex;
     background-color: var(--assistantapps-patron-background-colour, #6c757d);
     border-radius: 5px;
+    text-decoration: none;
     overflow: hidden;
   }
 

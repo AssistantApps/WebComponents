@@ -21,7 +21,7 @@
       return;
     }
     patrons = [
-      ...patreonListResult.value,
+      ...patreonListResult.value.map((p) => ({ ...p, url: undefined })),
       {
         name: "Join Patreon",
         imageUrl: "https://cdn.assistantapps.com/patreon.png",
@@ -44,6 +44,7 @@
     <div slot="loaded" class="patreon-container">
       {#each patrons as patron}
         <assistant-apps-patron-tile
+          url={patron.url}
           name={patron.name}
           imageurl={patron.imageUrl}
         />
