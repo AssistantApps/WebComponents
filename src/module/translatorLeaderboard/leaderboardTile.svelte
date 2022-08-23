@@ -69,12 +69,12 @@
   }
 
   .leaderboard-item .leaderboard-item-contents {
-    flex-grow: 1;
+    flex-grow: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 1em;
-    max-width: calc(100% - 200px);
+    max-width: calc(100% - 150px);
   }
 
   .leaderboard-item .leaderboard-item-name,
@@ -108,10 +108,12 @@
 
   .leaderboard-item .total {
     display: flex;
+    flex-grow: 1;
     align-items: center;
     justify-content: end;
-    margin: 0 1em 0 0;
+    padding-right: 0.5em;
+    /* margin: 0 1em 0 0;
+    width: 100px; */
     color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
-    width: 100px;
   }
 </style>
