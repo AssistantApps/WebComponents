@@ -1,0 +1,73 @@
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1em;
+    z-index: 20;
+}
+
+.dd-button {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px 30px 10px 10px;
+    background-color: var(--assistantapps-dropdown-background-colour, #646464);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dd-button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--assistantapps-dropdown-background-colour, #646464);
+}
+
+.dd-button:hover {
+    background-color: var(--assistantapps-dropdown-background-hover-colour, #7e7e7e);
+}
+
+.dd-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+}
+
+.dd-button p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.dd-input {
+    display: none;
+}
+
+.dd-menu {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--assistantapps-dropdown-background-colour, #646464);
+    list-style-type: none;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.dd-input + .dd-menu {
+    display: none;
+}
+
+.dd-input:checked + .dd-menu {
+    display: block;
+}

@@ -1,0 +1,88 @@
+<svg width="2143" height="737" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient x1="-199.97%" y1="276.802%" x2="84.489%" y2="45.52%" id="a">
+<stop stop-color="#FFF" stop-opacity=".64" offset="0%" />
+<stop stop-color="#FFF" stop-opacity="0" offset="100%" />
+</linearGradient>
+<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+<stop stop-color="#3B82F6" stop-opacity="0" offset="0%" />
+<stop stop-color="#3B82F6" offset="100%" />
+</linearGradient>
+<linearGradient x1="78.435%" y1="20.1%" x2="39.176%" y2="96.998%" id="d">
+<stop stop-color="#2563EB" offset="0%" />
+<stop stop-color="#F472B6" offset="34.045%" />
+<stop stop-color="#C084FC" offset="50.898%" />
+<stop stop-color="#376DF9" stop-opacity="0" offset="100%" />
+</linearGradient>
+<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="e">
+<stop stop-color="#60A5FA" stop-opacity="0" offset="0%" />
+<stop stop-color="#F472B6" offset="100%" />
+</linearGradient>
+<linearGradient x1="-112.893%" y1="162.269%" x2="55.594%" y2="40.631%" id="g">
+<stop stop-color="#FFF" stop-opacity=".16" offset="0%" />
+<stop stop-color="#FFF" stop-opacity="0" offset="100%" />
+</linearGradient>
+<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="h">
+<stop stop-color="#3B82F6" stop-opacity="0" offset="0%" />
+<stop stop-color="#3B82F6" stop-opacity=".711" offset="70.928%" />
+<stop stop-color="#DBEAFE" offset="100%" />
+</linearGradient>
+<filter
+      x="-37.5%"
+      y="-37.5%"
+      width="175%"
+      height="175%"
+      filterUnits="objectBoundingBox"
+      id="c"
+    >
+<feGaussianBlur stdDeviation="50" in="SourceGraphic" />
+</filter>
+<filter
+      x="-37.5%"
+      y="-37.5%"
+      width="175%"
+      height="175%"
+      filterUnits="objectBoundingBox"
+      id="f"
+    >
+<feGaussianBlur stdDeviation="50" in="SourceGraphic" />
+</filter>
+<filter
+      x="-17.1%"
+      y="-21.2%"
+      width="134.3%"
+      height="142.4%"
+      filterUnits="objectBoundingBox"
+      id="i"
+    >
+<feGaussianBlur stdDeviation="24" in="SourceGraphic" />
+</filter>
+</defs>
+<g fill="none" fill-rule="evenodd">
+      <circle
+      filter="url(#c)"
+      cx="200"
+      cy="200"
+      r="200"
+      transform="translate(1634 220)"
+      fill="url(#b)"
+      fill-opacity=".48"
+    />
+      <circle
+      filter="url(#f)"
+      cx="200"
+      cy="200"
+      r="200"
+      transform="translate(1234 -242)"
+      fill="url(#e)"
+      fill-opacity=".32"
+    />    
+      <path
+      filter="url(#i)"
+      d="M252.41 340h110.815l-95.766-172.04L420 0H309.186l-83.453 91.8L174.43 0H63.616l93.029 167.96L0 340h110.814l88.241-96.56z"
+      transform="translate(751 -267)"
+      fill="url(#h)"
+      fill-opacity=".24"
+    />
+    </g>
+    </svg>

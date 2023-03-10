@@ -4,3 +4,49 @@ body {
     width: 100%;
     height: 100%;
 }
+
+img.logo {
+    border-radius: 0.5em;
+}
+
+.tab-button {
+    cursor: pointer;
+}
+
+.tab-button.active button {
+    background-color: var(--tw-ring-color);
+}
+
+.tab-button button {
+    pointer-events: none;
+    transition: background-color 250ms ease-in-out;
+}
+
+.tab-view-content {
+    position: relative;
+    min-height: 200px;
+}
+
+.tab-view {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+}
+
+.tab-view.active {
+    position: relative;
+    opacity: 1;
+    height: unset;
+}
+
+.tab-view:not(.active) {
+    overflow: hidden;
+}
+
+div[class^="slot-"] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

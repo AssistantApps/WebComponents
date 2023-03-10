@@ -1,0 +1,67 @@
+@import "../../shared/scss/common.scss";
+@import "../../shared/scss/grid-container.scss";
+
+.apps-container {
+    @extend .grid-container;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media only screen and (max-width: 1300px) {
+    .apps-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 0.5em;
+        row-gap: 0.5em;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .apps-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        column-gap: 0.5em;
+        row-gap: 0.5em;
+    }
+}
+
+// App comp
+
+.aa-app {
+    display: flex;
+    height: var(--assistantapps-apps-tile-height, 75px);
+    background-color: var(--assistantapps-apps-background-colour, #6c757d79);
+    border-radius: 5px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.aa-app img.app-img {
+    height: var(--assistantapps-apps-tile-height, 75px);
+    width: var(--assistantapps-apps-tile-height, 75px);
+    object-fit: cover;
+    margin: 0;
+}
+
+.aa-app .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--assistantapps-apps-text-colour, white);
+    padding-left: 1em;
+    padding-right: 0.5em;
+    line-height: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.aa-app .content .app-name {
+    margin: 0;
+    max-width: 100%;
+    line-height: 110%;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.aa-app .content .app-name .highlight {
+    color: var(--assistantapps-apps-text-highlight-colour, #91ccff);
+}

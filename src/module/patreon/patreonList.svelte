@@ -44,7 +44,7 @@
     <div slot="loaded" class="patreon-container">
       {#each patrons as patron}
         <assistant-apps-patron-tile
-          url={patron.url}
+          url={patron.url ?? "https://assistantapps.com"}
           name={patron.name}
           imageurl={patron.imageUrl}
         />
@@ -53,55 +53,4 @@
   </assistant-apps-loading>
 </div>
 
-<style>
-  * {
-    font-family: var(
-      --assistantapps-font-family,
-      "Roboto",
-      Helvetica,
-      Arial,
-      sans-serif
-    );
-    font-weight: var(--assistantapps-font-weight, "bold");
-  }
-
-  .noselect {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Old versions of Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-  }
-
-  .patreon-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 1em;
-    row-gap: 1em;
-    margin-bottom: 3em;
-  }
-
-  @media only screen and (max-width: 1300px) {
-    .patreon-container {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
-  }
-
-  @media only screen and (max-width: 800px) {
-    .patreon-container {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
-  }
-</style>
+<style src="./patreon.scss"></style>
