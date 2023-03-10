@@ -3,25 +3,21 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { PatreonViewModel } from "../../contracts/generated/AssistantApps/ViewModel/patreonViewModel";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
   import { NetworkState } from "../../contracts/NetworkState";
+  import { useApiCall } from "../../helper/apiCallHelper";
+  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
 
   let networkState: NetworkState = NetworkState.Loading;
-  let patrons: Array<PatreonViewModel> = [];
+  let items: Array<PatreonViewModel> = [];
 
-  const fetchPatreons = async () => {
+  onMount(async () => {
     const aaApi = new AssistantAppsApiService();
-    const patreonListResult = await aaApi.getPatronsList();
-    if (
-      patreonListResult.isSuccess == false ||
-      patreonListResult.value == null ||
-      patreonListResult.value.length < 1
-    ) {
-      networkState = NetworkState.Error;
-      return;
-    }
-    patrons = [
-      ...patreonListResult.value.map((p) => ({ ...p, url: undefined })),
+    const [localNetworkState, localItemList] = await useApiCall(
+      aaApi.getPatronsList
+    );
+
+    items = [
+      ...localItemList.map((p) => ({ ...p, url: undefined } as any)),
       {
         name: "Join Patreon",
         imageUrl: "https://cdn.assistantapps.com/patreon.png",
@@ -29,11 +25,7 @@
         url: "https://patreon.com/AssistantApps",
       },
     ];
-    networkState = NetworkState.Success;
-  };
-
-  onMount(async () => {
-    fetchPatreons();
+    networkState = localNetworkState;
   });
 </script>
 
@@ -42,7 +34,7 @@
     <slot name="loading" slot="loading" />
     <slot name="error" slot="error" />
     <div slot="loaded" class="patreon-container">
-      {#each patrons as patron}
+      {#each items as patron}
         <assistant-apps-patron-tile
           url={patron.url ?? "https://assistantapps.com"}
           name={patron.name}

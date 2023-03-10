@@ -26,7 +26,8 @@ function setUpTabs() {
         tabBtn.addEventListener("click", handleTabClick)
     }
 
-    setCurrentTab(tabBtns[1])
+    setCurrentTab(tabBtns[3])
 }
 
 setUpTabs();
+hljs.highlightAll();

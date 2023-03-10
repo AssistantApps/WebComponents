@@ -1,0 +1,58 @@
+@import "../../shared/scss/common.scss";
+@import "../../shared/scss/grid-container.scss";
+
+.donation-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media only screen and (max-width: 1300px) {
+    .donation-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .donation-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+.aa-donation {
+    display: flex;
+    height: var(--assistantapps-donation-tile-height, 75px);
+    background-color: var(--assistantapps-donation-background-colour, #6c757d79);
+    border-radius: 5px;
+    text-decoration: none;
+    overflow: hidden;
+
+    img.donation-img {
+        height: calc(var(--assistantapps-donation-tile-height, 75px) - 20px);
+        width: calc(var(--assistantapps-donation-tile-height, 75px) - 20px);
+        object-fit: cover;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--assistantapps-donation-text-colour, white);
+        padding-left: 1em;
+        padding-right: 0.5em;
+        line-height: 1.2em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .app-name {
+            margin: 0;
+            max-width: 100%;
+            line-height: 110%;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    }
+}

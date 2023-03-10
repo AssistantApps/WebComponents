@@ -2,7 +2,6 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import Dropdown from "../../shared/dropdown.svelte";
   import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
   import type { LanguageViewModel } from "../../contracts/generated/AssistantApps/ViewModel/languageViewModel";
   import { NetworkState } from "../../contracts/NetworkState";

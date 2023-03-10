@@ -50,3 +50,70 @@ div[class^="slot-"] {
     display: flex;
     justify-content: center;
 }
+
+
+pre,
+pre code.hljs {
+    display: inline-block !important;
+}
+
+pre {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    font-size: .875em;
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal
+}
+
+pre code {
+    background-color: transparent;
+    color: currentColor;
+    font-size: 1em;
+    padding: 0
+}
+
+pre::-webkit-scrollbar {
+    height: 5px;
+    background-color: #00b0ff;
+}
+
+.hljs-tag {
+    color: #abb2bf !important;
+}
+
+.hljs-tag .hljs-attr {
+    color: #529dff !important;
+}
+
+.hljs-tag .hljs-name {
+    color: #688cbb !important;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    width: 5px;
+    background-color: #00b0ff;
+}
+
+*::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #3b6a80;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #00b0ff;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent);
+}

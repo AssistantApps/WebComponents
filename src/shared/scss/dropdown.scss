@@ -61,13 +61,13 @@
     background-color: var(--assistantapps-dropdown-background-colour, #646464);
     list-style-type: none;
     max-height: 500px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.dd-input + .dd-menu {
+.dd-input+.dd-menu {
     display: none;
 }
 
-.dd-input:checked + .dd-menu {
+.dd-input:checked+.dd-menu {
     display: block;
 }
