@@ -5,7 +5,7 @@
   // export let appGuid: string = "";
   export let name: string = "";
   export let subtitle: string = "";
-  export let iconUrl: string = "";
+  export let iconurl: string = "";
   // export let externalUrl: string = "";
   // export let languageCode: string = "";
   // export let platforms: string = "";
@@ -15,11 +15,10 @@
 </script>
 
 <div class="aa-app">
-  <img src={iconUrl} alt={name} class="app-img noselect" />
+  <img src={iconurl} alt={name} class="app-img noselect" />
   <div class="content">
     <h2 class="app-name">
-      <span>{name}</span><br />
-      <span>{subtitle}</span>
+      <span>{name}</span><br /><span>{subtitle}</span>
     </h2>
   </div>
 </div>
