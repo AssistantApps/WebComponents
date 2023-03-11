@@ -1,0 +1,15 @@
+@import "./scss/common.scss";
+
+.aa-error {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        max-width: 100px;
+    }
+
+    > * {
+        margin: 0 auto;
+    }
+}

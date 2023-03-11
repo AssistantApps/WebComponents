@@ -9,6 +9,7 @@
   import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
   import type { ResultWithValueAndPagination } from "../../contracts/results/ResultWithValue";
   import { anyObject } from "../../helper/typescriptHacks";
+  import { useApiCall } from "../../helper/apiCallHelper";
 
   const aaApi = new AssistantAppsApiService();
   let appLookup: Array<AppViewModel> = [];
@@ -19,32 +20,31 @@
   > = anyObject;
 
   const fetchApps = async () => {
-    const appsResult = await aaApi.getApps();
-    if (
-      appsResult.isSuccess === false ||
-      appsResult.value == null ||
-      appsResult.value.length < 1
-    ) {
-      networkState = NetworkState.Error;
+    const [localNetworkState, localItemList] = await useApiCall(aaApi.getApps);
+    if (localNetworkState == NetworkState.Error) {
       return;
     }
 
-    appLookup = appsResult.value;
-    selectedApp = appsResult.value[0];
-    networkState = NetworkState.Success;
+    const localItems = localItemList.filter((app) => app.isVisible);
+    localItems.sort(
+      (a: AppViewModel, b: AppViewModel) => a.sortOrder - b.sortOrder
+    );
+
+    appLookup = [...localItems];
+    selectedApp = localItems[0];
   };
 
   const fetchWhatIsNewItems = async (appSelected: AppViewModel) => {
     if (appSelected == null) return;
 
     selectedApp = appSelected;
-    networkState = NetworkState.Loading;
     const search: VersionSearchViewModel = {
       appGuid: appSelected.guid,
       languageCode: null,
       platforms: [],
       page: 1,
     };
+
     const whatIsNewResult = await aaApi.getWhatIsNewItems(search);
     if (
       whatIsNewResult.isSuccess == false ||

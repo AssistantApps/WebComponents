@@ -1,0 +1,39 @@
+@import "../../shared/scss/common.scss";
+
+.aa-app {
+    display: flex;
+    height: var(--assistantapps-app-notice-tile-height, 75px);
+    background-color: var(--assistantapps-app-notice-background-colour, #6c757d79);
+    border-radius: 5px;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.aa-app img.app-img {
+    height: var(--assistantapps-app-notice-tile-height, 75px);
+    width: var(--assistantapps-app-notice-tile-height, 75px);
+    object-fit: cover;
+    margin: 0;
+}
+
+.aa-app .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--assistantapps-app-notice-text-colour, white);
+    padding-left: 1em;
+    padding-right: 0.5em;
+    line-height: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.aa-app .content .app-name {
+    margin: 0;
+    max-width: 100%;
+    line-height: 110%;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

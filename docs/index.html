@@ -2,29 +2,346 @@
 <html lang="en">
 
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<title>AssistantApps WebComponents</title>
-	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel="icon" type="image/png" href="./favicon.png">
 	<link rel="stylesheet" href="./global.css" />
-	<script defer src='./build/bundle.js'></script>
+	<link rel="stylesheet" href="./assets/css/theme.css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="assets/css/highlight/default.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/highlight/atom-one-dark-reasonable.min.css">
+
+	<style>
+		:root {
+			--assistantnms-img-size: 50px;
+			--assistantnms-border-radius: 10px;
+			/* --assistantnms-tile-width: 100%; */
+		}
+	</style>
+
 	<script>
 		window.config = {
-			apiUrl: 'https://api.assistantapps.com'
+			apiUrl: 'https://api.assistantapps.com',
+			assistantAppsImgRoot: '',
 		};
+
+		if (window.location.href.includes('localhost')) {
+			window.config.apiUrl = 'http://localhost:55555';
+		}
 	</script>
 </head>
 
-<body>
-	<h1>AssistantApps WebComponents</h1>
-	<assistant-apps-patreon-list>
-		<span slot="loading">loading</span>
-		<span slot="error">error</span>
-	</assistant-apps-patreon-list>
-	<!-- <assistant-apps-version-search></assistant-apps-version-search> -->
-	<!-- <assistant-apps-team-list></assistant-apps-team-list> -->
-	<!-- <assistant-apps-translation-leaderboard></assistant-apps-translation-leaderboard> -->
+<body class="ok ai sn uh ul">
+	<div class="nl rj n_ im">
+		<header class="y nj z">
+			<div class="rr tf ot ld">
+				<div class="nl ie ii nd lb">
+
+					<div class="rv tc">
+						<a class="nu" href="index.html" aria-label="Cruip">
+							<img src="https://assistantapps.com/assets/img/logo-sm.png" class="logo" alt="logo" />
+						</a>
+					</div>
+
+					<nav class="nl rm">
+						<ul class="nl rm in rq ie">
+							<li class="th">
+								<a class="r ud su sl fr nj ao fj" href="#0">
+									Get Started <span class="uc uv fq ac ah ap tp">👇</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<main class="rm">
+			<section class="b im">
+				<div class="y w x k su sc sm as nm v te" aria-hidden="true"></div>
+				<div class="y _ rg v te" aria-hidden="true">
+					<img src="/assets/img/hero-illustration.svg" class="ri" width="2143" height="737"
+						alt="Hero Illustration">
+				</div>
+				<div class="b rr tf ot ld">
+					<div class="ov om ch cp">
+						<div class="rs tf lk ly ox cv">
+							<h1 class="h2 o_ td">AssistantApps<br /><em class="font-italic">WebComponents</em></h1>
+							<p class="oq up tv">
+								A collection of components that can be used on AssistantApps websites
+							</p>
+							<div class="ro tf lo li lf cs if lh lp">
+								<div>
+									<a class="n ud su sl fr nj ao fj" href="https://assistantapps.com"
+										target="_blank">View our App range 🡕</a>
+								</div>
+								<div>
+									<a href="https://docs.assistantapps.com/#/components/web-components"
+										class="n um su sc sg fi nj ao" target="_blank">Explore our Docs 📄</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="rr tf ot ld">
+					<div class="oo ca">
+						<div class="rf tf ox om cp">
+							<h2 class="h2 o_">Example of components that are ready to be used 🎉</h2>
+						</div>
+						<div class="tq">
+							<div class="nl rq ir ts">
+								<div id="tab-apps" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">📱&nbsp;<span class="al ah ap">Apps</span></div>
+									</button>
+								</div>
+								<!-- <div id="tab-app-notices" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">📢&nbsp;<span class="al ah ap">App Notices</span>
+										</div>
+									</button>
+								</div> -->
+								<div id="tab-badges" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">🛡️&nbsp;<span class="al ah ap">Badges</span></div>
+									</button>
+								</div>
+								<div id="tab-donators" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">💗&nbsp;<span class="al ah ap">Donators</span></div>
+									</button>
+								</div>
+								<div id="tab-patreon" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">💗&nbsp;<span class="al ah ap">Patreon</span></div>
+									</button>
+								</div>
+								<!-- <div id="tab-steam-news" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">📰&nbsp;<span class="al ah ap">Steam News</span></div>
+									</button>
+								</div> -->
+								<div id="tab-team-members" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">👥&nbsp;<span class="al ah ap">Team Members</span>
+										</div>
+									</button>
+								</div>
+								<!-- <div id="tab-translations-per-lang" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">🌐&nbsp;<span class="al ah ap">Translations per
+												Language</span></div>
+									</button>
+								</div> -->
+								<div id="tab-translations-leaderboard" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">🌐&nbsp;<span class="al ah ap">Translations
+												Leaderboard</span></div>
+									</button>
+								</div>
+								<div id="tab-versions" class="tab-button">
+									<button class="b ui on ou sr ig nc tu fj ft ad am av ag a_ aj fe ax">
+										<div class="nl ie ir">⏫&nbsp;<span class="al ah ap">Versions</span></div>
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<!-- Boxes -->
+						<div class="tab-view-content">
+							<div id="tab-view-apps" class="tab-view">
+								<br /><br />
+								<assistant-apps-apps-list>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-apps-list>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-apps-list&gt;&lt;/assistant-apps-apps-list&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-app-notices" class="tab-view">
+								<assistant-apps-app-notice-list-search>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-app-notice-list-search>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-app-notice-list appguid="assistantAppsAppGuid" langcode="languageCode" /&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-badges" class="tab-view">
+								<assistant-apps-badge-selector>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-badge-selector>
+
+								<br />
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-review-badge apptype="assistantAppsAppType" platform="platformType" /&gt;
+&lt;assistant-apps-version-badge appguid="assistantAppsAppGuid"/&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-donators" class="tab-view">
+								<assistant-apps-donators-list>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-donators-list>
+
+								<br />
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-donators-list/&gt;&lt;assistant-apps-donators-list/&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-patreon" class="tab-view">
+								<assistant-apps-patreon-list>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-patreon-list>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-patreon-list/&gt;&lt;assistant-apps-patreon-list/&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-steam-news" class="tab-view">tab-view-steam-news</div>
+							<div id="tab-view-team-members" class="tab-view">
+								<assistant-apps-team-list>
+									<div class="slot-loading" slot="loading">
+										<img src="/assets/img/circles.svg" alt="loading" />
+									</div>
+								</assistant-apps-team-list>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-team-list/&gt;&lt;assistant-apps-team-list/&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-translations-per-lang" class="tab-view">tab-view-translations-per-lang
+							</div>
+							<div id="tab-view-translations-leaderboard" class="tab-view">
+								<assistant-apps-translation-leaderboard></assistant-apps-translation-leaderboard>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-translation-leaderboard/&gt;&lt;assistant-apps-translation-leaderboard/&gt;</code
+								  ></pre>
+							</div>
+							<div id="tab-view-versions" class="tab-view">
+								<assistant-apps-version-search></assistant-apps-version-search>
+
+								<i>Code:</i><br />
+								<pre><code class="language-html"
+									>&lt;assistant-apps-version-search/&gt;&lt;assistant-apps-version-search/&gt;</code
+								  ></pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<br /><br /><br /><br /><br />
+		</main>
+
+		<footer>
+			<div class="rr tf ot ld">
+				<div class="nh la io ol cc">
+					<div class="ln cg cj">
+						<div class="tg">
+							<a class="nc" href="index.html" aria-label="Cruip">
+								<img src="https://assistantapps.com/assets/img/logo-sm.png" class="logo" alt="logo" />
+							</a>
+						</div>
+						<div class="oj ux">
+							<a class="up fo al ah ap" href="https://assistantapps.com/terms_and_conditions.html"
+								target="_blank">Terms</a> · <a class="up fo al ah ap"
+								href="https://assistantapps.com/privacy_policy.html">Privacy
+								Policy</a>
+						</div>
+					</div>
+
+					<div class="lr lg cy">
+						<h6 class="un uy us uu tg">Products</h6>
+						<ul class="oj ih">
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com" target="_blank">Homepage</a>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://tools.assistantapps.com"
+									target="_blank">Translation Tool</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="lr lg cy">
+						<h6 class="un uy us uu tg">Apps</h6>
+						<ul class="oj ih">
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com/nms"
+									target="_blank">AssistantNo Man's Sky</a>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com/Forest" target="_blank">The
+									Forest Companion</a>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com/nms" target="_blank">Assistant
+									Scrap Mechanic</a>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com/nms" target="_blank">Kronos:
+									Guide for Zombies</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="lr lg cy">
+						<h6 class="un uy us uu tg">Company & Other</h6>
+						<ul class="oj ih">
+							<li>
+								<a class="up fo al ah ap" href="https://docs.assistantapps.com/#/about/intro">Our
+									Story</a>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://assistantapps.com/#footer">Contact us</a>
+							</li>
+							<li>
+								<span class="up fo al ah ap">&nbsp;</span>
+							</li>
+							<li>
+								<a class="up fo al ah ap" href="https://blog.kurtlourens.com" target="_blank">Kurt's
+									Blog</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
 </body>
+
+<script defer src="./assets/js/highlight.min.js"></script>
+<script defer src="./assets/js/main.js"></script>
+<script defer src="./build/bundle.js"></script>
 
 </html>

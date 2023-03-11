@@ -6,14 +6,20 @@
   export let networkstate: NetworkState;
 </script>
 
-<div class="noselect">
+<div class="noselect" data-networkstate={networkstate}>
   {#if networkstate == NetworkState.Loading}
     <slot name="loading" />
-  {/if}
-  {#if networkstate == NetworkState.Error}
-    <slot name="error">error</slot>
-  {/if}
-  {#if networkstate == NetworkState.Success}
+  {:else if networkstate == NetworkState.Error}
+    <slot name="error">
+      <div class="aa-error">
+        <img
+          src="https://cdn.assistantapps.com/icon/NMSCDCreatureBuilder.png"
+          alt="monster representing an error"
+        />
+        <p>Something went wrong</p>
+      </div>
+    </slot>
+  {:else if networkstate == NetworkState.Success}
     <slot name="loaded">
       <div style="text-align: center">
         <span>Nothing supplied in the <b>loaded</b> slot</span>
@@ -22,5 +28,4 @@
   {/if}
 </div>
 
-<style>
-</style>
+<style src="./scss/loading.scss"></style>
