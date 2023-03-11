@@ -34,20 +34,18 @@
   });
 </script>
 
-<div class="noselect">
-  <assistant-apps-loading networkstate={networkState}>
-    <slot name="loading" slot="loading" />
-    <slot name="error" slot="error" />
-    <div slot="loaded" class="grid-container patreon-container">
-      {#each items as patron}
-        <assistant-apps-patron-tile
-          url={patron.url ?? "https://assistantapps.com"}
-          name={patron.name}
-          imageurl={patron.imageUrl}
-        />
-      {/each}
-    </div>
-  </assistant-apps-loading>
-</div>
+<assistant-apps-loading networkstate={networkState}>
+  <slot name="loading" slot="loading" />
+  <slot name="error" slot="error" />
+  <div slot="loaded" class="grid-container patreon-container noselect">
+    {#each items as patron}
+      <assistant-apps-patron-tile
+        url={patron.url ?? "https://assistantapps.com"}
+        name={patron.name}
+        imageurl={patron.imageUrl}
+      />
+    {/each}
+  </div>
+</assistant-apps-loading>
 
 <style src="./patreonList.scss"></style>

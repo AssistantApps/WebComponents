@@ -33,7 +33,7 @@
 <assistant-apps-loading networkstate={networkState}>
   {#if $$slots.loading != null}<slot name="loading" slot="loading" />{/if}
   {#if $$slots.error != null}<slot name="error" slot="error" />{/if}
-  <div slot="loaded" class="apps-container">
+  <div slot="loaded" class="grid-container app-notice-container noselect">
     {#if items.length > 0}
       {#each items as item}
         <assistant-apps-app-notice-tile

@@ -2,14 +2,12 @@
 
 <script lang="ts">
     import { onMount } from "svelte";
+    import type { DropdownOption } from "../../contracts/dropdown";
     import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
-    import type { LanguageViewModel } from "../../contracts/generated/AssistantApps/ViewModel/languageViewModel";
     import { NetworkState } from "../../contracts/NetworkState";
     import { useApiCall } from "../../helper/apiCallHelper";
+    import { getImgRoot } from "../../helper/windowHelper";
     import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
-    import type { DropdownOption } from "../../contracts/dropdown";
-    import { PlatformType } from "../../contracts/generated/AssistantApps/Enum/platformType";
-    import { capitalizeFirstLetter } from "../../helper/stringHelper";
 
     const aaApi = new AssistantAppsApiService();
     let appLookup: Array<DropdownOption> = [];
@@ -47,12 +45,12 @@
             {
                 name: "Google Play",
                 value: "1",
-                iconUrl: "/assets/img/platform/android.png",
+                iconUrl: `${getImgRoot()}/assets/img/platform/android.png`,
             },
             {
                 name: "Apple App Store",
                 value: "2",
-                iconUrl: "/assets/img/platform/iOS.png",
+                iconUrl: `${getImgRoot()}/assets/img/platform/iOS.png`,
             },
         ];
         platLookup = [...localPlatLookup];

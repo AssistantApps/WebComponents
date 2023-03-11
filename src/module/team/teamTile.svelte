@@ -9,7 +9,7 @@
 </script>
 
 <div class="team-member">
-  <img src={imageurl} alt={name} class="team-member-img" />
+  <img src={imageurl} alt={name} class="team-member-img noselect" />
   <div class="team-member-contents">
     <h3 class="team-member-name">{name}</h3>
     <p class="team-member-role">{role}</p>

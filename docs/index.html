@@ -28,9 +28,12 @@
 	<script>
 		window.config = {
 			apiUrl: 'https://api.assistantapps.com',
-			// apiUrl: 'http://localhost:55555',
 			assistantAppsImgRoot: '',
 		};
+
+		if (window.location.href.includes('localhost')) {
+			window.config.apiUrl = 'http://localhost:55555';
+		}
 	</script>
 </head>
 

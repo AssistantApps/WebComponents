@@ -32,23 +32,21 @@
   });
 </script>
 
-<div class="noselect">
-  <assistant-apps-loading networkstate={networkState}>
-    <slot name="loading" slot="loading" />
-    <slot name="error" slot="error" />
-    <div slot="loaded" class="grid-container leaderboard-container">
-      {#each leaderBoardResult.value ?? [] as leaderBoardItem}
-        <assistant-apps-translation-leaderboard-tile
-          username={leaderBoardItem.username}
-          profileimageurl={leaderBoardItem.profileImageUrl}
-          numtranslations={leaderBoardItem.numTranslations}
-          numvotesgiven={leaderBoardItem.numVotesGiven}
-          numvotesreceived={leaderBoardItem.numVotesReceived}
-          total={leaderBoardItem.total}
-        />
-      {/each}
-    </div>
-  </assistant-apps-loading>
-</div>
+<assistant-apps-loading networkstate={networkState}>
+  <slot name="loading" slot="loading" />
+  <slot name="error" slot="error" />
+  <div slot="loaded" class="grid-container leaderboard-container noselect">
+    {#each leaderBoardResult.value ?? [] as leaderBoardItem}
+      <assistant-apps-translation-leaderboard-tile
+        username={leaderBoardItem.username}
+        profileimageurl={leaderBoardItem.profileImageUrl}
+        numtranslations={leaderBoardItem.numTranslations}
+        numvotesgiven={leaderBoardItem.numVotesGiven}
+        numvotesreceived={leaderBoardItem.numVotesReceived}
+        total={leaderBoardItem.total}
+      />
+    {/each}
+  </div>
+</assistant-apps-loading>
 
 <style src="./leaderboardList.scss"></style>

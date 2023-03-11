@@ -8,12 +8,12 @@
 
 {#if url != null}
   <a href={url} target="_blank" rel="noopener noreferrer" class="patron">
-    <img src={imageurl} alt={name} class="patron-img" />
+    <img src={imageurl} alt={name} class="patron-img noselect" />
     <h2 class="patron-name">{name}</h2>
   </a>
 {:else}
   <div class="patron">
-    <img src={imageurl} alt={name} class="patron-img" />
+    <img src={imageurl} alt={name} class="patron-img noselect" />
     <h2 class="patron-name">{name}</h2>
   </div>
 {/if}

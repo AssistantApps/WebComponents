@@ -2,12 +2,13 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
+  import type { DropdownOption } from "../../contracts/dropdown";
   import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
   import type { LanguageViewModel } from "../../contracts/generated/AssistantApps/ViewModel/languageViewModel";
   import { NetworkState } from "../../contracts/NetworkState";
   import { useApiCall } from "../../helper/apiCallHelper";
+  import { getImgRoot } from "../../helper/windowHelper";
   import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
-  import type { DropdownOption } from "../../contracts/dropdown";
 
   const aaApi = new AssistantAppsApiService();
   let appLookup: Array<DropdownOption> = [];
@@ -60,7 +61,7 @@
     langLookup = [enLangHack, ...localItems].map((a) => ({
       name: a.name,
       value: a.languageCode,
-      iconUrl: `/assets/img/countryCode/${a.countryCode}.svg`,
+      iconUrl: `${getImgRoot()}/assets/img/countryCode/${a.countryCode}.svg`,
     }));
     selectedLangCode = enLangHack.languageCode;
     return NetworkState.Success;

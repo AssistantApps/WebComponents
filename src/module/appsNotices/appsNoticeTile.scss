@@ -1,5 +1,4 @@
 @import "../../shared/scss/common.scss";
-@import "../../shared/scss/grid-container.scss";
 
 .aa-app {
     display: flex;
@@ -37,8 +36,4 @@
     overflow-wrap: break-word;
     white-space: pre-wrap;
     word-wrap: break-word;
-}
-
-.aa-app .content .app-name .highlight {
-    color: var(--assistantapps-app-notice-text-highlight-colour, #91ccff);
 }

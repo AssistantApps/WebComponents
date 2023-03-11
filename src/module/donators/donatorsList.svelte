@@ -5,6 +5,7 @@
   import type { DonationViewModel } from "../../contracts/generated/AssistantApps/ViewModel/donationViewModel";
   import { NetworkState } from "../../contracts/NetworkState";
   import { useApiCall } from "../../helper/apiCallHelper";
+  import { getImgRoot } from "../../helper/windowHelper";
   import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
 
   let networkState: NetworkState = NetworkState.Loading;
@@ -33,7 +34,7 @@
     {#each items as item}
       <div class="aa-donation">
         <img
-          src={`${window.config.assistantAppsImgRoot}/assets/img/donation/${item.type}.png`}
+          src={`${getImgRoot()}/assets/img/donation/${item.type}.png`}
           alt={item.type.toString()}
           class="donation-img noselect"
         />

@@ -9,7 +9,7 @@
   export let total: number = 0;
 </script>
 
-<div class="leaderboard-item">
+<div class="leaderboard-item noselect">
   <img src={profileimageurl} alt={username} class="leaderboard-item-img" />
   <div class="leaderboard-item-contents">
     <h2 class="leaderboard-item-name">{username}</h2>

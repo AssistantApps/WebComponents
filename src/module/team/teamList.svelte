@@ -26,22 +26,20 @@
   });
 </script>
 
-<div class="noselect">
-  <assistant-apps-loading networkstate={networkState}>
-    <slot name="loading" slot="loading" />
-    <slot name="error" slot="error" />
-    <div slot="loaded" class="grid-container team-members-container">
-      {#each items as teamMember}
-        <assistant-apps-team-tile
-          name={teamMember.name}
-          role={teamMember.role}
-          imageurl={teamMember.imageUrl}
-          linkname={teamMember.linkName}
-          linkurl={teamMember.linkUrl}
-        />
-      {/each}
-    </div>
-  </assistant-apps-loading>
-</div>
+<assistant-apps-loading networkstate={networkState}>
+  <slot name="loading" slot="loading" />
+  <slot name="error" slot="error" />
+  <div slot="loaded" class="grid-container team-members-container noselect">
+    {#each items as teamMember}
+      <assistant-apps-team-tile
+        name={teamMember.name}
+        role={teamMember.role}
+        imageurl={teamMember.imageUrl}
+        linkname={teamMember.linkName}
+        linkurl={teamMember.linkUrl}
+      />
+    {/each}
+  </div>
+</assistant-apps-loading>
 
 <style src="./teamList.scss"></style>

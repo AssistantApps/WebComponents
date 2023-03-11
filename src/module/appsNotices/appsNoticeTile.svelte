@@ -15,7 +15,7 @@
 </script>
 
 <div class="aa-app">
-  <img src={iconUrl} alt={name} class="app-img" />
+  <img src={iconUrl} alt={name} class="app-img noselect" />
   <div class="content">
     <h2 class="app-name">
       <span>{name}</span><br />
