@@ -159,7 +159,7 @@
     padding: 10px 30px 10px 10px;
     background-color: var(
       --assistantapps-version-dropdown-background-colour,
-      #ffffff
+      #6c757d79
     );
     cursor: pointer;
     white-space: nowrap;
@@ -176,13 +176,13 @@
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid
-      var(--assistantapps-version-dropdown-background-colour, #ffffff);
+      var(--assistantapps-version-dropdown-background-colour, #6c757d79);
   }
 
   .dd-button:hover {
     background-color: var(
       --assistantapps-version-dropdown-background-hover-colour,
-      #eeeeee
+      #6c757d
     );
   }
 
@@ -214,7 +214,7 @@
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
     background-color: var(
       --assistantapps-version-dropdown-background-colour,
-      #ffffff
+      #6c757d
     );
     list-style-type: none;
   }
@@ -236,7 +236,7 @@
   .dd-menu li:hover {
     background-color: var(
       --assistantapps-version-dropdown-background-hover-colour,
-      #f6f6f6
+      #7b848b
     );
   }
 
