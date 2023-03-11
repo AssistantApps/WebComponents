@@ -61,7 +61,7 @@
     langLookup = [enLangHack, ...localItems].map((a) => ({
       name: a.name,
       value: a.languageCode,
-      iconUrl: `${getImgRoot()}/assets/img/countryCode/${a.countryCode.toUpper()}.svg`,
+      iconUrl: `${getImgRoot()}/assets/img/countryCode/${a.countryCode.toLocaleUpperCase()}.svg`,
     }));
     selectedLangCode = enLangHack.languageCode;
     return NetworkState.Success;
