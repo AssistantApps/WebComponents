@@ -16,6 +16,11 @@
       aaApi.getDonators
     );
 
+    if (localNetworkState == NetworkState.Error) {
+      networkState = localNetworkState;
+      return;
+    }
+
     items = (localItemList as any).value;
     networkState = localNetworkState;
   });

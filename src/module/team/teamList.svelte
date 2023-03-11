@@ -16,6 +16,11 @@
       aaApi.getTeamMembersList
     );
 
+    if (localNetworkState == NetworkState.Error) {
+      networkState = localNetworkState;
+      return;
+    }
+
     items = [...localItemList];
     networkState = localNetworkState;
   });
@@ -25,7 +30,7 @@
   <assistant-apps-loading networkstate={networkState}>
     <slot name="loading" slot="loading" />
     <slot name="error" slot="error" />
-    <div slot="loaded" class="team-members-container">
+    <div slot="loaded" class="grid-container team-members-container">
       {#each items as teamMember}
         <assistant-apps-team-tile
           name={teamMember.name}
@@ -39,4 +44,4 @@
   </assistant-apps-loading>
 </div>
 
-<style src="./team.scss"></style>
+<style src="./teamList.scss"></style>

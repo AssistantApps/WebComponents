@@ -1,18 +1,22 @@
 @import "../../shared/scss/common.scss";
 @import "../../shared/scss/grid-container.scss";
 
-.apps-container {
+.patreon-container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media only screen and (max-width: 1300px) {
-    .apps-container {
+    .patreon-container {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 0.5em;
+        row-gap: 0.5em;
     }
 }
 
 @media only screen and (max-width: 800px) {
-    .apps-container {
+    .patreon-container {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+        column-gap: 0.5em;
+        row-gap: 0.5em;
     }
 }

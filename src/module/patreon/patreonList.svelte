@@ -16,6 +16,11 @@
       aaApi.getPatronsList
     );
 
+    if (localNetworkState == NetworkState.Error) {
+      networkState = localNetworkState;
+      return;
+    }
+
     items = [
       ...localItemList.map((p) => ({ ...p, url: undefined } as any)),
       {
@@ -33,7 +38,7 @@
   <assistant-apps-loading networkstate={networkState}>
     <slot name="loading" slot="loading" />
     <slot name="error" slot="error" />
-    <div slot="loaded" class="patreon-container">
+    <div slot="loaded" class="grid-container patreon-container">
       {#each items as patron}
         <assistant-apps-patron-tile
           url={patron.url ?? "https://assistantapps.com"}
@@ -45,4 +50,4 @@
   </assistant-apps-loading>
 </div>
 
-<style src="./patreon.scss"></style>
+<style src="./patreonList.scss"></style>

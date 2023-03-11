@@ -26,7 +26,7 @@ function setUpTabs() {
         tabBtn.addEventListener("click", handleTabClick)
     }
 
-    setCurrentTab(tabBtns[3])
+    setCurrentTab(tabBtns[0])
 }
 
 setUpTabs();

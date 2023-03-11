@@ -14,6 +14,11 @@
     const aaApi = new AssistantAppsApiService();
     const [localNetworkState, localItemList] = await useApiCall(aaApi.getApps);
 
+    if (localNetworkState == NetworkState.Error) {
+      networkState = localNetworkState;
+      return;
+    }
+
     const localApps = localItemList.filter((app) => app.isVisible);
     localApps.sort(
       (a: AppViewModel, b: AppViewModel) => a.sortOrder - b.sortOrder

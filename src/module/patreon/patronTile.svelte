@@ -18,4 +18,4 @@
   </div>
 {/if}
 
-<style src="./patreon.scss"></style>
+<style src="./patreonTile.scss"></style>
