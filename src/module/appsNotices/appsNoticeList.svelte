@@ -39,7 +39,7 @@
         <assistant-apps-app-notice-tile
           name={item.name}
           subtitle={item.subtitle}
-          iconUrl={item.iconUrl}
+          iconurl={item.iconUrl}
         />
       {/each}
     {:else}

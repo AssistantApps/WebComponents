@@ -23,6 +23,4 @@ export * from './shared/loadingWithSlots.svelte';
 export * from './shared/markdown.svelte';
 export * from './shared/tooltip.svelte';
 
-export * from './App.svelte';
-
 console.log(`AssistantApps.WebComponents v${currentVersion}`)

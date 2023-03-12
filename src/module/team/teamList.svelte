@@ -29,7 +29,7 @@
 <assistant-apps-loading networkstate={networkState}>
   <slot name="loading" slot="loading" />
   <slot name="error" slot="error" />
-  <div slot="loaded" class="grid-container team-members-container noselect">
+  <div slot="loaded" class="team-members-container noselect">
     {#each items as teamMember}
       <assistant-apps-team-tile
         name={teamMember.name}
