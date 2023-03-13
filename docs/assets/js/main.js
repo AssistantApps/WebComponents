@@ -34,8 +34,8 @@ const tabViewMap = {
         <br />
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-review-badge apptype="assistantAppsAppType" platform="platformType" /&gt;
-&lt;assistant-apps-version-badge appguid="assistantAppsAppGuid"/&gt;</code
+            >&lt;assistant-apps-review-badge apptype="assistantAppsAppType" platform="platformType" fallbackimg="optional fallback img" /&gt;
+&lt;assistant-apps-version-badge appguid="assistantAppsAppGuid" fallbackimg="optional fallback img" /&gt;</code
         ></pre>
     </div>`,
     'donators': `<div id="tab-view-donators" class="tab-view">
