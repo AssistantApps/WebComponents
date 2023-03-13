@@ -48,7 +48,7 @@ const tabViewMap = {
         <br />
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-donators-list/&gt;&lt;assistant-apps-donators-list/&gt;</code
+            >&lt;assistant-apps-donators-list/&gt;&lt;assistant-apps-donators-list&gt;</code
         ></pre>
     </div>`,
     'patreon': `<div id="tab-view-patreon" class="tab-view">
@@ -60,7 +60,7 @@ const tabViewMap = {
 
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-patreon-list/&gt;&lt;assistant-apps-patreon-list/&gt;</code
+            >&lt;assistant-apps-patreon-list&gt;&lt;/assistant-apps-patreon-list&gt;</code
         ></pre>
     </div>`,
     'steam-news': `<div id="tab-view-steam-news" class="tab-view">tab-view-steam-news</div>`,
@@ -73,7 +73,7 @@ const tabViewMap = {
 
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-team-list/&gt;&lt;assistant-apps-team-list/&gt;</code
+            >&lt;assistant-apps-team-list&gt;&lt;/assistant-apps-team-list&gt;</code
         ></pre>
     </div>`,
     'translations-per-lang': `<div id="tab-view-translations-per-lang" class="tab-view">tab-view-translations-per-lang</div>`,
@@ -86,7 +86,7 @@ const tabViewMap = {
 
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-translation-leaderboard/&gt;&lt;assistant-apps-translation-leaderboard/&gt;</code
+            >&lt;assistant-apps-translation-leaderboard&gt;&lt;assistant-apps-translation-leaderboard&gt;</code
         ></pre>
     </div>`,
     'versions': `<div id="tab-view-versions" class="tab-view">
@@ -98,7 +98,7 @@ const tabViewMap = {
 
         <i>Code:</i><br />
         <pre><code class="language-html"
-            >&lt;assistant-apps-version-search/&gt;&lt;assistant-apps-version-search/&gt;</code
+            >&lt;assistant-apps-version-search&gt;&lt;assistant-apps-version-search&gt;</code
         ></pre>
     </div>`,
 };
