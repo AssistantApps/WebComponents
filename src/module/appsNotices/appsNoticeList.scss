@@ -2,17 +2,17 @@
 @import "../../shared/scss/grid-container.scss";
 
 .app-notice-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    --aa-grid-columns: 3;
 }
 
 @media only screen and (max-width: 1300px) {
     .app-notice-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        --aa-grid-columns: 2;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .app-notice-container {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+        --aa-grid-columns: 1;
     }
 }

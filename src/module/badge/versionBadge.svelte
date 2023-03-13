@@ -4,6 +4,7 @@
   import { getImgRoot } from "../../helper/windowHelper";
 
   export let appguid: string = "";
+  export let fallbackimg: string = "";
 </script>
 
 <object
@@ -11,7 +12,10 @@
   data={`https://api.assistantapps.com/badge/version/${appguid}.svg`}
   type="image/jpeg"
 >
-  <img src={`${getImgRoot()}./assets/img/fallback.png`} alt="version-badge" />
+  <img
+    src={fallbackimg ?? `${getImgRoot()}/assets/img/fallback.png`}
+    alt="version-badge"
+  />
 </object>
 
 <style></style>
