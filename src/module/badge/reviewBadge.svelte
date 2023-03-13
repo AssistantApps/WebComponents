@@ -5,6 +5,7 @@
 
   export let apptype: string = "";
   export let platform: string = "";
+  export let fallbackimg: string = "";
 </script>
 
 <object
@@ -12,7 +13,10 @@
   data={`https://api.assistantapps.com/badge/review/${apptype}/${platform}.svg`}
   type="image/jpeg"
 >
-  <img src={`${getImgRoot()}./assets/img/fallback.png`} alt="review-badge" />
+  <img
+    src={fallbackimg ?? `${getImgRoot()}/assets/img/fallback.png`}
+    alt="review-badge"
+  />
 </object>
 
 <style></style>
