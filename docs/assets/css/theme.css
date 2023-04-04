@@ -30,6 +30,10 @@ body {
     line-height: inherit
 }
 
+html, body {
+    scroll-behavior: smooth;
+}
+
 hr {
     height: 0;
     color: inherit;

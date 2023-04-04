@@ -38,6 +38,19 @@ const tabViewMap = {
 &lt;assistant-apps-version-badge appguid="assistantAppsAppGuid" fallbackimg="optional fallback img" /&gt;</code
         ></pre>
     </div>`,
+    'donation-options': `<div id="tab-view-donation-options" class="tab-view">
+        <assistant-apps-donation-option-list>
+            <div class="slot-loading" slot="loading">
+                <img src="/assets/img/circles.svg" alt="loading" />
+            </div>
+        </assistant-apps-donation-option-list>
+
+        <br />
+        <i>Code:</i><br />
+        <pre><code class="language-html"
+            >&lt;assistant-apps-donation-option-list/&gt;&lt;assistant-apps-donation-option-list&gt;</code
+        ></pre>
+    </div>`,
     'donators': `<div id="tab-view-donators" class="tab-view">
         <assistant-apps-donators-list>
             <div class="slot-loading" slot="loading">

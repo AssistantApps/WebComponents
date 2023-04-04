@@ -8,6 +8,7 @@ export * from './module/appsNotices/appsNoticeTile.svelte';
 export * from './module/badge/badgeSelector.svelte';
 export * from './module/badge/reviewBadge.svelte';
 export * from './module/badge/versionBadge.svelte';
+export * from './module/donationOptions/donationOptions.svelte';
 export * from './module/donators/donatorsList.svelte';
 export * from './module/patreon/patreonList.svelte';
 export * from './module/patreon/patronTile.svelte';
