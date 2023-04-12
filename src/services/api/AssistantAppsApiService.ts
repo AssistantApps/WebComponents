@@ -17,7 +17,7 @@ declare global {
 
 export class AssistantAppsApiService extends BaseApiService {
     constructor() {
-        super(window.config?.assistantAppsUrl);
+        super(window.config?.assistantAppsApiUrl);
     }
     getApps = (): Promise<ResultWithValue<Array<AppViewModel>>> => this.get<Array<AppViewModel>>('app');
     getAppNotices = (appGuid: string, langCode: string): Promise<ResultWithValue<Array<AppNoticeViewModel>>> => this.get<Array<AppNoticeViewModel>>(`appNotice/${appGuid}/${langCode}`);
