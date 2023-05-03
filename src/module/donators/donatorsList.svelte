@@ -2,27 +2,19 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { DonationViewModel } from "../../contracts/generated/AssistantApps/ViewModel/donationViewModel";
+  import type { DonationViewModel } from "@assistantapps/assistantapps.api.client";
+
   import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { getImgRoot } from "../../helper/windowHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
+  import { getAssistantAppsImgRoot } from "../../services/dependencyInjection";
+  import { init } from "./donatorsList.controller";
 
   let networkState: NetworkState = NetworkState.Loading;
   let items: Array<DonationViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const [localNetworkState, localItemList] = await useApiCall(
-      aaApi.getDonators
-    );
+    const [localNetworkState, localItemList] = await init();
 
-    if (localNetworkState == NetworkState.Error) {
-      networkState = localNetworkState;
-      return;
-    }
-
-    items = (localItemList as any).value;
+    items = [...localItemList];
     networkState = localNetworkState;
   });
 </script>
@@ -34,7 +26,9 @@
     {#each items as item}
       <div class="aa-donation">
         <img
-          src={`${getImgRoot()}/assets/img/donation/${item.type}.png`}
+          src={`${getAssistantAppsImgRoot()}/assets/img/donation/${
+            item.type
+          }.png`}
           alt={item.type.toString()}
           class="donation-img noselect"
         />
@@ -43,6 +37,16 @@
         </div>
       </div>
     {/each}
+    <div class="aa-donation">
+      <img
+        src={`${getAssistantAppsImgRoot()}/assets/img/donation/GithubSponsors.png`}
+        alt="other"
+        class="donation-img noselect"
+      />
+      <div class="content">
+        <h2 class="app-name">Many more supporters</h2>
+      </div>
+    </div>
   </div>
 </assistant-apps-loading>
 

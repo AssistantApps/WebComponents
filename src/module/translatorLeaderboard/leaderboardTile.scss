@@ -3,16 +3,32 @@
 .leaderboard-item {
     display: flex;
     border-radius: 5px;
-    background-color: var(--assistantapps-leaderboard-item-background-colour,
-            #6c757d);
+    background-color: var(--assistantapps-leaderboard-item-background-colour, #6c757d);
     height: var(--assistantapps-leaderboard-tile-size, 100px);
 }
 
-.leaderboard-item img.leaderboard-item-img {
+.leaderboard-item .leaderboard-item-img-container {
+    width: var(--assistantapps-leaderboard-tile-size, 100px);
+    height: var(--assistantapps-leaderboard-tile-size, 100px);
+    position: relative;
+}
+
+.leaderboard-item .leaderboard-item-img-container img.leaderboard-item-img {
     width: var(--assistantapps-leaderboard-tile-size, 100px);
     height: var(--assistantapps-leaderboard-tile-size, 100px);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+.leaderboard-item .leaderboard-item-img-container .total {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0.15em 0.15em 0.15em 0.5em;
+    border-radius: 1em;
+    color: var(--assistantapps-leaderboard-item-text-colour, #f0f0f0);
+    background-color: var(--assistantapps-leaderboard-item-background-colour, #494e52);
 }
 
 .leaderboard-item .leaderboard-item-contents {
@@ -21,8 +37,7 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 1em;
-    max-width: calc(100% - 150px);
-    overflow: hidden;
+    width: calc(100% - 200px);
 }
 
 .leaderboard-item .leaderboard-item-name,
@@ -56,8 +71,7 @@
     margin-bottom: 0.25em;
     padding: 0.25em 0.5em 0.25em 0.3em;
     border-radius: 1em;
-    background-color: var(--assistantapps-leaderboard-item-background-colour,
-            #494e52);
+    background-color: var(--assistantapps-leaderboard-item-background-colour, #494e52);
 }
 
 .leaderboard-item .total {

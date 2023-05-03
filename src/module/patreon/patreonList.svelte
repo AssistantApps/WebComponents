@@ -2,34 +2,18 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { PatreonViewModel } from "../../contracts/generated/AssistantApps/ViewModel/patreonViewModel";
+  import type { PatreonViewModel } from "@assistantapps/assistantapps.api.client";
+
   import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
+  import { init } from "./patreonList.controller";
 
   let networkState: NetworkState = NetworkState.Loading;
   let items: Array<PatreonViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const [localNetworkState, localItemList] = await useApiCall(
-      aaApi.getPatronsList
-    );
+    const [localNetworkState, localItemList] = await init();
 
-    if (localNetworkState == NetworkState.Error) {
-      networkState = localNetworkState;
-      return;
-    }
-
-    items = [
-      ...localItemList.map((p) => ({ ...p, url: undefined } as any)),
-      {
-        name: "Join Patreon",
-        imageUrl: "https://cdn.assistantapps.com/patreon.png",
-        thumbnailUrl: "https://cdn.assistantapps.com/patreon.png",
-        url: "https://patreon.com/AssistantApps",
-      },
-    ];
+    items = [...localItemList];
     networkState = localNetworkState;
   });
 </script>

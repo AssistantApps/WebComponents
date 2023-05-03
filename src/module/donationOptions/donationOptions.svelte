@@ -1,8 +1,8 @@
 <svelte:options tag="assistant-apps-donation-option-list" />
 
 <script lang="ts">
-  import { getImgRoot } from "../../helper/windowHelper";
   import { donationOptions } from "../../constants/donationOption";
+  import { getAssistantAppsImgRoot } from "../../services/dependencyInjection";
 </script>
 
 <div class="grid-container donation-options-container">
@@ -15,7 +15,9 @@
       title={donationOption.title}
     >
       <img
-        src={`${getImgRoot()}/assets/img/donation/${donationOption.image}`}
+        src={`${getAssistantAppsImgRoot()}/assets/img/donation/${
+          donationOption.image
+        }`}
         alt={donationOption.title}
         class="donation-img noselect"
       />

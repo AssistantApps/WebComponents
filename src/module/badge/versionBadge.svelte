@@ -1,7 +1,10 @@
 <svelte:options tag="assistant-apps-version-badge" />
 
 <script lang="ts">
-  import { getImgRoot } from "../../helper/windowHelper";
+  import {
+    getAssistantAppsImgRoot,
+    getAssistantAppsUrl,
+  } from "../../services/dependencyInjection";
 
   export let appguid: string = "";
   export let fallbackimg: string = "";
@@ -9,11 +12,11 @@
 
 <object
   title="review-badge"
-  data={`https://api.assistantapps.com/badge/version/${appguid}.svg`}
+  data={`${getAssistantAppsUrl()}/badge/version/${appguid}.svg`}
   type="image/jpeg"
 >
   <img
-    src={fallbackimg ?? `${getImgRoot()}/assets/img/fallback.png`}
+    src={fallbackimg ?? `${getAssistantAppsImgRoot()}/assets/img/fallback.png`}
     alt="version-badge"
   />
 </object>

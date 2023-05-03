@@ -2,83 +2,25 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { DropdownOption } from "../../contracts/dropdown";
-  import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
-  import type { LanguageViewModel } from "../../contracts/generated/AssistantApps/ViewModel/languageViewModel";
-  import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { getImgRoot } from "../../helper/windowHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
 
-  const aaApi = new AssistantAppsApiService();
+  import { init } from "./appsNoticeListSearch.controller";
+  import type { DropdownOption } from "../../contracts/dropdown";
+  import { NetworkState } from "../../contracts/NetworkState";
+
   let appLookup: Array<DropdownOption> = [];
   let selectedAppGuid: String = "";
   let langLookup: Array<DropdownOption> = [];
   let selectedLangCode: String = "";
   let networkState: NetworkState = NetworkState.Loading;
 
-  const fetchApps = async (): Promise<NetworkState> => {
-    const [localNetworkState, localItemList] = await useApiCall(aaApi.getApps);
-    if (localNetworkState == NetworkState.Error) {
-      return localNetworkState;
-    }
-
-    const localItems = localItemList.filter((app) => app.isVisible);
-    localItems.sort(
-      (a: AppViewModel, b: AppViewModel) => a.sortOrder - b.sortOrder
-    );
-
-    appLookup = localItems.map((a) => ({
-      name: a.name,
-      value: a.guid,
-      iconUrl: a.iconUrl,
-    }));
-    selectedAppGuid = localItems[0].guid;
-    return NetworkState.Success;
-  };
-
-  const fetchLanguages = async (): Promise<NetworkState> => {
-    const [localNetworkState, localItemList] = await useApiCall(
-      aaApi.getLanguages
-    );
-    if (localNetworkState == NetworkState.Error) {
-      return localNetworkState;
-    }
-
-    const localItems = localItemList.filter((app) => app.isVisible);
-    localItems.sort(
-      (a: LanguageViewModel, b: LanguageViewModel) => a.sortOrder - b.sortOrder
-    );
-
-    const enLangHack: any = {
-      guid: "hack",
-      name: "English",
-      languageCode: "en",
-      countryCode: "gb",
-      sortOrder: 0,
-      isVisible: true,
-    };
-    langLookup = [enLangHack, ...localItems].map((a) => ({
-      name: a.name,
-      value: a.languageCode,
-      iconUrl: `${getImgRoot()}/assets/img/countryCode/${a.countryCode.toLocaleUpperCase()}.svg`,
-    }));
-    selectedLangCode = enLangHack.languageCode;
-    return NetworkState.Success;
-  };
-
   onMount(async () => {
-    const fetchAppsState = await fetchApps();
-    const fetchLanguagesState = await fetchLanguages();
+    const initState = await init();
 
-    if (
-      fetchAppsState != NetworkState.Error &&
-      fetchLanguagesState != NetworkState.Error
-    ) {
-      networkState = NetworkState.Success;
-    } else {
-      networkState = NetworkState.Error;
-    }
+    networkState = initState.networkState;
+    appLookup = initState.appLookup;
+    selectedAppGuid = initState.selectedAppGuid;
+    langLookup = initState.langLookup;
+    selectedLangCode = initState.selectedLangCode;
   });
 </script>
 
@@ -91,6 +33,7 @@
       >
         <div slot="options">
           {#each appLookup as opt}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <assistant-apps-dropdown-option
               name={opt.name}
               value={opt.value}
@@ -112,6 +55,7 @@
       >
         <div slot="options">
           {#each langLookup as opt}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <assistant-apps-dropdown-option
               name={opt.name}
               value={opt.value}

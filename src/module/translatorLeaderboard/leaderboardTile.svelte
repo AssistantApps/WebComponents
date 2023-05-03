@@ -1,16 +1,28 @@
 <svelte:options tag="assistant-apps-translation-leaderboard-tile" />
 
 <script lang="ts">
+  import { getAssistantAppsImgRoot } from "../../services/dependencyInjection";
+
   export let username: string = "";
   export let profileimageurl: string = "";
   export let numtranslations: number = 0;
   export let numvotesgiven: number = 0;
   export let numvotesreceived: number = 0;
   export let total: number = 0;
+
+  const handleError = (ev) =>
+    (ev.target.src = `${getAssistantAppsImgRoot()}/assets/img/translatorFallback.png`);
 </script>
 
 <div class="leaderboard-item noselect">
-  <img src={profileimageurl} alt={username} class="leaderboard-item-img" />
+  <div class="leaderboard-item-img-container">
+    <img
+      src={profileimageurl}
+      alt={username}
+      class="leaderboard-item-img"
+      on:error={handleError}
+    />
+  </div>
   <div class="leaderboard-item-contents">
     <h2 class="leaderboard-item-name">{username}</h2>
     <h4 class="leaderboard-item-numbers">

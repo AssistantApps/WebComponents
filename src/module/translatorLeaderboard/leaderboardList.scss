@@ -2,23 +2,23 @@
 @import "../../shared/scss/grid-container.scss";
 
 .leaderboard-container {
-    --aa-grid-columns: 3;
+    --aa-grid-columns: var(--aa-grid-leaderboard-columns, 3);
 }
 
 @media only screen and (max-width: 1300px) {
     .leaderboard-container {
-        --aa-grid-columns: 3;
+        --aa-grid-columns: var(--aa-grid-leaderboard-columns, 2);
     }
 }
 
 @media only screen and (max-width: 800px) {
     .leaderboard-container {
-        --aa-grid-columns: 2;
+        --aa-grid-columns: var(--aa-grid-leaderboard-columns, 1);
     }
 }
 
 @media only screen and (max-width: 500px) {
     .leaderboard-container {
-        --aa-grid-columns: 2;
+        --aa-grid-columns: var(--aa-grid-leaderboard-columns, 1);
     }
 }
