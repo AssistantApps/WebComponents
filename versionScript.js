@@ -1,12 +1,12 @@
-const fs = require('fs');
-const util = require('util');
+import fs from 'fs';
+import util from 'util';
 
 const readFile = util.promisify(fs.readFile);
 
 async function generateVersionNumFile() {
     const packageString = await readFile('./package.json', 'utf8');
-    const package = JSON.parse(packageString);
-    const versionNum = package?.version;
+    const packageObj = JSON.parse(packageString);
+    const versionNum = packageObj?.version;
     if (versionNum == null) {
         console.log('versionNum is null');
         return;
