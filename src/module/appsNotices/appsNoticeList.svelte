@@ -2,10 +2,10 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { AppNoticeViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appNoticeViewModel";
+  import type { AppNoticeViewModel } from "@assistantapps/assistantapps.api.client";
+
   import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
+  import { init } from "./appsNoticeList.controller";
 
   export let appguid: string = "";
   export let langcode: string = "";
@@ -14,18 +14,9 @@
   let items: Array<AppNoticeViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const [localNetworkState, localItemList] = await useApiCall(() =>
-      aaApi.getAppNotices(appguid, langcode)
-    );
+    const [localNetworkState, localItemList] = await init(appguid, langcode);
 
-    const localItems = localItemList.filter((app) => app.isVisible);
-    localItems.sort(
-      (a: AppNoticeViewModel, b: AppNoticeViewModel) =>
-        a.sortOrder - b.sortOrder
-    );
-
-    items = [...localItems];
+    items = [...localItemList];
     networkState = localNetworkState;
   });
 </script>

@@ -1,34 +1,20 @@
 <svelte:options tag="assistant-apps-translation-leaderboard" />
 
 <script lang="ts">
+  import type { TranslatorLeaderboardItemViewModel } from "@assistantapps/assistantapps.api.client";
   import { onMount } from "svelte";
 
-  import type { ResultWithValueAndPagination } from "../../contracts/results/ResultWithValue";
-  import type { TranslatorLeaderboardItemViewModel } from "../../contracts/generated/AssistantApps/ViewModel/Translation/translatorLeaderboardItemViewModel";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
   import { NetworkState } from "../../contracts/NetworkState";
-  import { anyObject } from "../../helper/typescriptHacks";
+  import { init } from "./leaderboardList.controller";
 
   let networkState: NetworkState = NetworkState.Loading;
-  let leaderBoardResult: ResultWithValueAndPagination<
-    Array<TranslatorLeaderboardItemViewModel>
-  > = anyObject;
+  let items: Array<TranslatorLeaderboardItemViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const leaderboardListResult = await aaApi.getTranslators();
-    if (
-      leaderboardListResult.isSuccess == false ||
-      leaderboardListResult.value == null ||
-      leaderboardListResult.value.isSuccess == false ||
-      leaderboardListResult.value.value == null ||
-      leaderboardListResult.value.value.length < 1
-    ) {
-      networkState = NetworkState.Error;
-      return;
-    }
-    leaderBoardResult = leaderboardListResult.value;
-    networkState = NetworkState.Success;
+    const [localNetworkState, localItemList] = await init();
+
+    items = [...localItemList];
+    networkState = localNetworkState;
   });
 </script>
 
@@ -36,7 +22,7 @@
   <slot name="loading" slot="loading" />
   <slot name="error" slot="error" />
   <div slot="loaded" class="grid-container leaderboard-container noselect">
-    {#each leaderBoardResult.value ?? [] as leaderBoardItem}
+    {#each items as leaderBoardItem}
       <assistant-apps-translation-leaderboard-tile
         username={leaderBoardItem.username}
         profileimageurl={leaderBoardItem.profileImageUrl}

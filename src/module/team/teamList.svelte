@@ -1,25 +1,17 @@
 <svelte:options tag="assistant-apps-team-list" />
 
 <script lang="ts">
+  import type { TeamMemberViewModel } from "@assistantapps/assistantapps.api.client";
   import { onMount } from "svelte";
-  import type { TeamMemberViewModel } from "../../contracts/generated/AssistantApps/ViewModel/teamMemberViewModel";
+
   import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
+  import { init } from "./teamList.controller";
 
   let networkState: NetworkState = NetworkState.Loading;
   let items: Array<TeamMemberViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const [localNetworkState, localItemList] = await useApiCall(
-      aaApi.getTeamMembersList
-    );
-
-    if (localNetworkState == NetworkState.Error) {
-      networkState = localNetworkState;
-      return;
-    }
+    const [localNetworkState, localItemList] = await init();
 
     items = [...localItemList];
     networkState = localNetworkState;

@@ -1,1 +1,0 @@
-export const getImgRoot = () => window?.config?.assistantAppsImgRoot ?? "";

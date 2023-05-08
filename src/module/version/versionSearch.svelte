@@ -1,68 +1,41 @@
 <svelte:options tag="assistant-apps-version-search" />
 
 <script lang="ts">
+  import type {
+    AppViewModel,
+    VersionViewModel,
+  } from "@assistantapps/assistantapps.api.client";
   import { onMount } from "svelte";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
-  import { NetworkState } from "../../contracts/NetworkState";
-  import type { VersionSearchViewModel } from "../../contracts/generated/AssistantApps/ViewModel/Version/versionSearchViewModel";
-  import type { VersionViewModel } from "../../contracts/generated/AssistantApps/ViewModel/Version/versionViewModel";
-  import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
-  import type { ResultWithValueAndPagination } from "../../contracts/results/ResultWithValue";
-  import { anyObject } from "../../helper/typescriptHacks";
-  import { useApiCall } from "../../helper/apiCallHelper";
 
-  const aaApi = new AssistantAppsApiService();
+  import { NetworkState } from "../../contracts/NetworkState";
+  import { getAssistantAppsService } from "../../services/dependencyInjection";
+  import { fetchWhatIsNewItems, init } from "./versionSearch.controller";
+
+  let networkState: NetworkState = NetworkState.Loading;
   let appLookup: Array<AppViewModel> = [];
   let selectedApp: AppViewModel;
-  let networkState: NetworkState = NetworkState.Loading;
-  let whatIsNewPagination: ResultWithValueAndPagination<
-    Array<VersionViewModel>
-  > = anyObject;
+  let whatIsNewItems: Array<VersionViewModel> = [];
 
-  const fetchApps = async () => {
-    const [localNetworkState, localItemList] = await useApiCall(aaApi.getApps);
-    if (localNetworkState == NetworkState.Error) {
-      return;
-    }
+  onMount(async () => {
+    const initState = await init();
 
-    const localItems = localItemList.filter((app) => app.isVisible);
-    localItems.sort(
-      (a: AppViewModel, b: AppViewModel) => a.sortOrder - b.sortOrder
-    );
+    networkState = initState.networkState;
+    appLookup = initState.appLookup;
+    selectedApp = initState.selectedApp;
+    whatIsNewItems = initState.whatIsNewItems;
+  });
 
-    appLookup = [...localItems];
-    selectedApp = localItems[0];
-  };
-
-  const fetchWhatIsNewItems = async (appSelected: AppViewModel) => {
-    if (appSelected == null) return;
-
-    selectedApp = appSelected;
-    const search: VersionSearchViewModel = {
-      appGuid: appSelected.guid,
-      languageCode: null,
-      platforms: [],
-      page: 1,
-    };
-
-    const whatIsNewResult = await aaApi.getWhatIsNewItems(search);
-    if (
-      whatIsNewResult.isSuccess == false ||
-      whatIsNewResult.value == null ||
-      whatIsNewResult.value.length < 1
-    ) {
+  const localFetchWhatIsNewItems = async (appSelected: AppViewModel) => {
+    const aaApi = getAssistantAppsService();
+    const fetchWhatIsNewState = await fetchWhatIsNewItems(aaApi, appSelected);
+    if (fetchWhatIsNewState[0] == NetworkState.Error) {
       networkState = NetworkState.Error;
       return;
     }
 
-    whatIsNewPagination = whatIsNewResult;
+    whatIsNewItems = fetchWhatIsNewState[1];
     networkState = NetworkState.Success;
   };
-
-  onMount(async () => {
-    await fetchApps();
-    fetchWhatIsNewItems(selectedApp);
-  });
 </script>
 
 <div class="noselect">
@@ -84,10 +57,11 @@
         <input type="checkbox" class="dd-input" />
         <ul class="dd-menu">
           {#each appLookup as app}
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
             <li
               class="dd-menu-item"
               value={app.guid}
-              on:click={() => fetchWhatIsNewItems(app)}
+              on:click={() => localFetchWhatIsNewItems(app)}
             >
               <img src={app.iconUrl} alt={app.name} />
               <p>{app.name}</p>
@@ -97,7 +71,7 @@
       </label>
 
       <div class="what-is-new-container noselect">
-        {#each whatIsNewPagination.value ?? [] as whatIsNewItem}
+        {#each whatIsNewItems ?? [] as whatIsNewItem}
           <assistant-apps-version-search-tile
             guid={whatIsNewItem.guid}
             markdown={whatIsNewItem.markdown}
@@ -107,7 +81,7 @@
             activedate={whatIsNewItem.activeDate}
           />
         {/each}
-        {#if whatIsNewPagination.value == null || whatIsNewPagination.value.length < 1}
+        {#if whatIsNewItems == null || whatIsNewItems.length < 1}
           <p>No items to display</p>
         {/if}
       </div>
@@ -115,170 +89,4 @@
   </assistant-apps-loading>
 </div>
 
-<style>
-  * {
-    font-family: var(
-      --assistantapps-font-family,
-      "Roboto",
-      Helvetica,
-      Arial,
-      sans-serif
-    );
-    font-weight: var(--assistantapps-font-weight, "bold");
-  }
-
-  .noselect {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Old versions of Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-  }
-
-  /* Dropdown */
-
-  .dropdown {
-    display: inline-block;
-    position: relative;
-    margin-bottom: 1em;
-    z-index: 20;
-  }
-
-  .dd-button {
-    display: flex;
-    border: 1px solid gray;
-    border-radius: 4px;
-    padding: 10px 30px 10px 10px;
-    background-color: var(
-      --assistantapps-version-dropdown-background-colour,
-      #6c757d79
-    );
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  .dd-button:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid
-      var(--assistantapps-version-dropdown-background-colour, #6c757d);
-  }
-
-  .dd-button:hover {
-    background-color: var(
-      --assistantapps-version-dropdown-background-hover-colour,
-      #6c757d
-    );
-  }
-
-  .dd-button img {
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5em;
-  }
-
-  .dd-button p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .dd-input {
-    display: none;
-  }
-
-  .dd-menu {
-    position: absolute;
-    top: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0;
-    margin: 2px 0 0 0;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
-    background-color: var(
-      --assistantapps-version-dropdown-background-colour,
-      #6c757d
-    );
-    list-style-type: none;
-  }
-
-  .dd-input + .dd-menu {
-    display: none;
-  }
-
-  .dd-input:checked + .dd-menu {
-    display: block;
-  }
-
-  .dd-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  .dd-menu li:hover {
-    background-color: var(
-      --assistantapps-version-dropdown-background-hover-colour,
-      #7b848b
-    );
-  }
-
-  .dd-menu li.dd-menu-item {
-    display: flex;
-  }
-
-  .dd-menu li.dd-menu-item img {
-    width: 40px;
-    height: 40px;
-    margin-right: 1em;
-  }
-
-  .dd-menu li.dd-menu-item p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .what-is-new-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 1em;
-    row-gap: 1em;
-    margin-bottom: 3em;
-  }
-
-  @media only screen and (max-width: 1000px) {
-    .what-is-new-container {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    .what-is-new-container {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-      column-gap: 0.5em;
-      row-gap: 0.5em;
-    }
-  }
-</style>
+<style src="./versionSearch.scss"></style>

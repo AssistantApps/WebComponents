@@ -2,29 +2,18 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { AppViewModel } from "../../contracts/generated/AssistantApps/ViewModel/appViewModel";
+  import type { AppViewModel } from "@assistantapps/assistantapps.api.client";
+
   import { NetworkState } from "../../contracts/NetworkState";
-  import { useApiCall } from "../../helper/apiCallHelper";
-  import { AssistantAppsApiService } from "../../services/api/AssistantAppsApiService";
+  import { init } from "./appList.controller";
 
   let networkState: NetworkState = NetworkState.Loading;
   let items: Array<AppViewModel> = [];
 
   onMount(async () => {
-    const aaApi = new AssistantAppsApiService();
-    const [localNetworkState, localItemList] = await useApiCall(aaApi.getApps);
+    const [localNetworkState, localItemList] = await init();
 
-    if (localNetworkState == NetworkState.Error) {
-      networkState = localNetworkState;
-      return;
-    }
-
-    const localApps = localItemList.filter((app) => app.isVisible);
-    localApps.sort(
-      (a: AppViewModel, b: AppViewModel) => a.sortOrder - b.sortOrder
-    );
-
-    items = [...localApps];
+    items = [...localItemList];
     networkState = localNetworkState;
   });
 </script>

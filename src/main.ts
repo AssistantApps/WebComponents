@@ -1,4 +1,7 @@
 import { currentVersion } from './version';
+import { setupAssistantAppsDependencyInjection } from "./services/dependencyInjection";
+
+setupAssistantAppsDependencyInjection();
 
 export * from './module/apps/appList.svelte';
 export * from './module/apps/appTile.svelte';

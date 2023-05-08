@@ -9,6 +9,8 @@
   export let logourl: string = "";
   // export let isVisible: boolean;
   // export let sortOrder: number;
+
+  // TODO change div to link
 </script>
 
 <div class="aa-app">
