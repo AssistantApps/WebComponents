@@ -15,6 +15,8 @@ export * from './module/donationOptions/donationOptions.svelte';
 export * from './module/donators/donatorsList.svelte';
 export * from './module/patreon/patreonList.svelte';
 export * from './module/patreon/patronTile.svelte';
+export * from './module/posthog/analytics.svelte';
+export * from './module/posthog/cookieBanner.svelte';
 export * from './module/team/teamList.svelte';
 export * from './module/team/teamTile.svelte';
 export * from './module/translatorLeaderboard/leaderboardList.svelte';
