@@ -1,0 +1,59 @@
+@import "../../shared/scss/common.scss";
+
+.aa-cookie-banner {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--assistantapps-banner-bg-colour, rgb(17, 24, 39));
+  border-top-color: var(--assistantapps-banner-bg-colour, lighten(rgb(17, 24, 39), 10%));
+  border-top-width: 2px;
+  border-top-style: solid;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+
+  img {
+    max-height: 150px;
+  }
+
+  .content {
+    flex: 3;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2em;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .actions {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2em;
+    max-width: 250px;
+
+    button {
+      margin: 0.5em;
+      padding: 0.5em;
+      border-style: solid;
+      border-radius: 10px;
+      outline: none;
+      background-color: var(--assistantapps-banner-button-bg, rgb(25, 50, 100));
+      border-color: var(--assistantapps-banner-button-bg, lighten(rgb(25, 50, 100), 5%));
+      color: var(--assistantapps-banner-button-colour, rgb(200, 200, 200));
+      cursor: pointer;
+
+      &.preferred {
+        background-color: var(--assistantapps-banner-preferred-button-bg, rgb(50, 200, 50));
+        border-color: var(--assistantapps-banner-preferred-button-bg, lighten(rgb(50, 200, 50), 5%));
+        color: var(--assistantapps-banner-button-colour, rgb(0, 0, 0));
+      }
+    }
+  }
+}
