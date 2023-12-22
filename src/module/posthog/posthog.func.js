@@ -25,7 +25,6 @@ export const postHogInit = (analyticsCode, {
   }
 
   window?.posthog?.init?.(analyticsCode, options);
-  console.log(window?.posthog)
 }
 
 export const postHogTrack = (event, value) => {

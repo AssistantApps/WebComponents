@@ -71,8 +71,8 @@
   {/if}
 
   <assistant-apps-loading networkstate={networkState}>
-    {#if $$slots.loading != null}<slot name="loading" slot="loading" />{/if}
-    {#if $$slots.error != null}<slot name="error" slot="error" />{/if}
+    <slot name="loading" slot="loading" />
+    <slot name="error" slot="error" />
     <div slot="loaded">
       {#key selectedAppGuid}
         {#key selectedLangCode}
