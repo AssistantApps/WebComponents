@@ -2,7 +2,7 @@ const tabViewMap = {
     'apps': `<div id="tab-view-apps" class="tab-view">
         <br /><br />
         <assistant-apps-apps-list>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-apps-list>
@@ -14,7 +14,7 @@ const tabViewMap = {
     </div>`,
     'app-notices': `<div id="tab-view-app-notices" class="tab-view">
         <assistant-apps-app-notice-list-search>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-app-notice-list-search>
@@ -26,7 +26,7 @@ const tabViewMap = {
     </div>`,
     'badges': `<div id="tab-view-badges" class="tab-view">
         <assistant-apps-badge-selector>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-badge-selector>
@@ -40,7 +40,7 @@ const tabViewMap = {
     </div>`,
     'donation-options': `<div id="tab-view-donation-options" class="tab-view">
         <assistant-apps-donation-option-list>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-donation-option-list>
@@ -53,7 +53,7 @@ const tabViewMap = {
     </div>`,
     'donators': `<div id="tab-view-donators" class="tab-view">
         <assistant-apps-donators-list>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-donators-list>
@@ -66,7 +66,7 @@ const tabViewMap = {
     </div>`,
     'patreon': `<div id="tab-view-patreon" class="tab-view">
         <assistant-apps-patreon-list>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-patreon-list>
@@ -79,7 +79,7 @@ const tabViewMap = {
     'steam-news': `<div id="tab-view-steam-news" class="tab-view">tab-view-steam-news</div>`,
     'team-members': `<div id="tab-view-team-members" class="tab-view">
         <assistant-apps-team-list>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-team-list>
@@ -92,7 +92,7 @@ const tabViewMap = {
     'translations-per-lang': `<div id="tab-view-translations-per-lang" class="tab-view">tab-view-translations-per-lang</div>`,
     'translations-leaderboard': `<div id="tab-view-translations-leaderboard" class="tab-view">
         <assistant-apps-translation-leaderboard>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-translation-leaderboard>
@@ -104,7 +104,7 @@ const tabViewMap = {
     </div>`,
     'versions': `<div id="tab-view-versions" class="tab-view">
         <assistant-apps-version-search>
-            <div class="slot-loading" slot="loading">
+            <div slot="loading">
                 <img src="/assets/img/circles.svg" alt="loading" />
             </div>
         </assistant-apps-version-search>
