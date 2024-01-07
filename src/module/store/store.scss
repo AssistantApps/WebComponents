@@ -2,6 +2,8 @@
 
 .aa-store-badge {
     object-fit: cover;
+    max-width: var(--assistantapps-store-tile-size, 600px);
+    max-height: var(--assistantapps-store-tile-size, 200px);
     margin: 0;
     overflow: hidden;
 }
