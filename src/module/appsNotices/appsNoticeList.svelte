@@ -33,8 +33,6 @@
           iconurl={item.iconUrl}
         />
       {/each}
-    {:else}
-      <h3>No Notices to display</h3>
     {/if}
   </div>
 </assistant-apps-loading>
