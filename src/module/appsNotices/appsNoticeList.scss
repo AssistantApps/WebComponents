@@ -2,17 +2,17 @@
 @import "../../shared/scss/grid-container.scss";
 
 .app-notice-container {
-    --aa-grid-columns: 3;
+  --aa-grid-columns: var(--aa-app-notice-grid-columns, 3);
 }
 
 @media only screen and (max-width: 1300px) {
-    .app-notice-container {
-        --aa-grid-columns: 2;
-    }
+  .app-notice-container {
+    --aa-grid-columns: var(--aa-app-notice-grid-columns, 2);
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .app-notice-container {
-        --aa-grid-columns: 1;
-    }
+  .app-notice-container {
+    --aa-grid-columns: var(--aa-app-notice-grid-columns, 1);
+  }
 }
