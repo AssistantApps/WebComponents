@@ -77,6 +77,16 @@ const tabViewMap = {
         ></pre>
     </div>`,
     'steam-news': `<div id="tab-view-steam-news" class="tab-view">tab-view-steam-news</div>`,
+    'store-badges': `<div id="tab-view-store-badges" class="tab-view">
+        <assistant-apps-store-badge-selector>
+        </assistant-apps-store-badge-selector>
+
+        <br />
+        <i>Code:</i><br />
+        <pre><code class="language-html"
+            >&lt;assistant-apps-store-tile language="en" store="google" alt="optional" /&gt;</code
+        ></pre>
+    </div>`,
     'team-members': `<div id="tab-view-team-members" class="tab-view">
         <assistant-apps-team-list>
             <div slot="loading">
@@ -117,6 +127,7 @@ const tabViewMap = {
 };
 
 function handleTabClick() {
+
     const tabBtns = document.getElementsByClassName('tab-button');
     for (const tabBtn of tabBtns) {
         tabBtn.classList.remove('active');

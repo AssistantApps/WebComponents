@@ -1,0 +1,31 @@
+@import "../../shared/scss/common.scss";
+
+.aa-store-badge {
+    object-fit: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+input {
+    display: flex;
+    border: 1px solid gray;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 30px 10px 10px;
+    background-color: var(--assistantapps-dropdown-background-colour, #646464);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+input:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--assistantapps-dropdown-background-colour, #646464);
+}
